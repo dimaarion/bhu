@@ -1,8 +1,10 @@
 import axios from 'axios'
 
-export const inital_base_url = 'http://velixar.project';
+export const inital_base_url = 'http://sandaniprim.mdlocal';
 
-const api = axios.create({
-    baseURL: inital_base_url + '/api/getdb/',
 
-})
+
+export function get(f, namef) {
+    axios.get(inital_base_url + "/adminpanel/pages/" + namef)
+    .then((rezult)=>f(rezult.data))
+}
