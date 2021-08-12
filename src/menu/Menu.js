@@ -9,6 +9,6 @@ export default function Menu(props) {
 
     return (
         <div>
-            {menu.map((m) => <div>{m.names}</div>)}
+            {menu.map((m, i) => <div key = {m.names + i}>{m.names}</div>)}
         </div>)
 }
