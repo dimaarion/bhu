@@ -1,0 +1,18 @@
+.lang{
+    margin-top: 50px;
+    
+}
+.lang .fl{
+    cursor: pointer;
+    border: solid 1px #cccccc;
+    text-align: center;
+    margin-left: 2px;
+    min-width: 50px;
+    color: #187751;
+    transition: 0.5s;
+    
+}
+.lang .fl:hover{
+    background-color: rgb(243, 243, 243);
+}
+

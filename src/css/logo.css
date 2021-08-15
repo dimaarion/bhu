@@ -1,3 +1,17 @@
 .logoS{
-    font-size: 18pt;
+    font-size: 20pt;
+    font-weight: 700;
+    font-variant:initial;
+    
+}
+.logoP{
+    font-size: 29pt;
+    font-weight: 300;
+    font-variant:initial;
+    font-family: 'Jura', sans-serif;
+    letter-spacing: 2pt;
+    
+}
+.logo{
+    cursor: pointer;
 }

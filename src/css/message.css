@@ -1,0 +1,16 @@
+.message{
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+    border: solid 1px #cccccc;
+    padding: 10px 20px 10px 20px;
+    color: #187751;
+    font-size: 16pt;
+    min-width: 200px;
+    transition: 0.6s;
+    cursor: pointer;
+    
+}
+.message:hover{
+   box-shadow: 5px 5px 5px  #cccccc ;
+}
