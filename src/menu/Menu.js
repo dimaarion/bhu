@@ -1,19 +1,31 @@
 import React, { useEffect } from "react";
 import "../css/menu.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Menu(props) {
     
     useEffect(()=>{
         childRemove();
     },[props])
+   
+    const lang = useSelector((state)=>state.lang);
 
    function childRemove() {
         let ul =  document.getElementsByClassName("navChild");
         ul = Array.from(ul)
-        ul.map((x)=>{
+        ul.map((x, i)=>{
+            
            if( x.innerHTML === ""){
                x.remove();
            }
+           if(x.parentElement !== null && x.parentElement.className === "list"){
+               x.parentElement.style.width = 186 + "px";
+               x.parentElement.style.height = 38 + "px"
+               x.style.marginLeft =  x.parentElement.style.width ;
+               let h = Number.isInteger(x.parentElement.style.height.replace("px","")); 
+               x.style.marginTop = - 32 + "px" ;       
+           }
+          
         })
    }
 
@@ -48,7 +60,7 @@ export default function Menu(props) {
     function cildRecursion(c) {
         if (isObj(c.child)) {
            // console.log(c.child);
-            return <ul className = "navChild">{isObj(c.child)? c.child.map((m2) => <li><Link to = {m2.alias}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
+            return <ul className = "navChild">{isObj(c.child)? c.child.map((m2, i) => <li className = "list" key = {m2.alias + i}><Link to = {`${m2.alias}`}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
         }
 
     }
@@ -56,7 +68,7 @@ export default function Menu(props) {
         <div className="menu">
             <div className="container">
                 <ul className="nav justify-content-center">
-                    {cildMenu(props).map((m, i) => <li className="nav-link text-center" key={m.names + i}><Link to = {m.alias}>{m.names}</Link>
+                    {cildMenu(props).map((m, i) => <li className="nav-link text-center" key={m.names + i}><Link to = {`${m.alias}`}>{m.names}</Link>
                         {(isObj(m.child) ) ? cildRecursion(m) : ""}
                     </li>)}
                 </ul>

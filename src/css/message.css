@@ -9,8 +9,8 @@
     min-width: 200px;
     transition: 0.6s;
     cursor: pointer;
-    
+    box-shadow: 5px 5px 5px  #cccccc ;
 }
 .message:hover{
-   box-shadow: 5px 5px 5px  #cccccc ;
+    box-shadow: 0px 0px 0px  #cccccc ;
 }
