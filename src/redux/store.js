@@ -1,10 +1,12 @@
-import { combineReducers, createStore } from "redux";
+import { combineReducers } from "redux";
 
-function test(state = {}) {
-    return 10;
+export function test(state = 0) {
+    return state = 10;
 }
 
 
-export default createStore(combineReducers(
-    test
-)) 
+export default combineReducers(
+    {
+        test:test
+    }
+    )

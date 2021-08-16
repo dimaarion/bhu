@@ -16,7 +16,7 @@ export default function ArticlesAll(props) {
     }, [])
     
    function menuId(m) {
-       m.filter((f)=>f.alias === props.location.pathname)
+     //  m.filter((f)=>f.alias === props.location.pathname)
    }
     return (
         <div>

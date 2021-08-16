@@ -26,7 +26,6 @@ export default function Pages(props) {
     return (
         <div>
             <div className="row">
-               
                 <div className="col-sm"></div>
                 <Logo />
                 <MessageButton />
@@ -35,11 +34,11 @@ export default function Pages(props) {
                 <div className="col-sm"></div>
             </div>
             <Menu menu={menu} />
-            <Switch>
-                {menu.map((m) =><Route path={`/:page/:lang`} component = {ArticlesAll}/>)}
+           
+           
+                {/*menu.map((m) =><Route path={`/:page/:lang`} component = {ArticlesAll}/>)*/}
 
-            </Switch>
-
+          
 
 
         </div>
