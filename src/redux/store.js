@@ -42,12 +42,22 @@ export function getMenuArt(state = [{}], action){
     }
 }
 
+export function getArticles(state = [{}], action){
+    switch (action.type) {
+        case "GETARTICLES":
+            return action.preload;
+        default:
+           return state;
+    }
+}
+
 
 export default combineReducers(
     {
         lang:lang,
         menuId:menuId,
         getMenu:getMenu,
-        getMenuArt:getMenuArt
+        getMenuArt:getMenuArt,
+        getArticles:getArticles
     }
     )

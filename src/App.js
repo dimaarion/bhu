@@ -14,8 +14,10 @@ function App() {
  const SELECTGETMENU = useSelector((state)=>state.getMenu);
  const lang = useSelector((store)=>store.lang);
  const SELECTMENUID = useSelector((store)=>store.menuId);
+ const SELECARTICLES = useSelector((store)=>store.getArticles);
  const GETMENU = useDispatch();
  const GETMENUART = useDispatch();
+ const GETARTICLES = useDispatch();
   useEffect(() => {
     get(setMenu, "menu.php");
     get(setArticles, "articles.php");
@@ -37,13 +39,17 @@ function App() {
   useEffect(()=>{
     GETMENUART({type:"GETMENUART",preload:artMenu})
   },[artMenu])
+
+  useEffect(()=>{
+    GETARTICLES({type:"GETARTICLES",preload:articles})
+  },[articles])
   return (
     <div className="container-fluid text-center p-0">
       <HeadPage />
       <Menu menu={SELECTGETMENU} />
       <Switch>
         {SELECTGETMENU.map((m , i) => <Route exact   key =  {m.alias + i} path={m.alias==="/"?"/":"/" + m.alias} component={ArticlesAll} />)}
-        {articles.map((m , i) => <Route  exact  key =  {m.art_alias + i} path={"/" + m.art_alias} component={Pages} />)}
+        {SELECARTICLES.map((m , i) => <Route  exact  key =  {m.art_alias + i} path={"/" + m.art_alias} component={Pages} />)}
       </Switch>
     </div>
 
