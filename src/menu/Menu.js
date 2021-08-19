@@ -1,15 +1,16 @@
 import React, { useEffect } from "react";
 import "../css/menu.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector,useDispatch } from "react-redux";
+import { get, urlMdRu } from "../action";
 export default function Menu(props) {
     
     useEffect(()=>{
         childRemove();
     },[props])
-   
+    const MENUID = useDispatch();
     const lang = useSelector((state)=>state.lang);
-
+    const SELECTGETMENU = useSelector((state) => state.getMenu);
    function childRemove() {
         let ul =  document.getElementsByClassName("navChild");
         ul = Array.from(ul)
@@ -60,7 +61,7 @@ export default function Menu(props) {
     function cildRecursion(c) {
         if (isObj(c.child)) {
            // console.log(c.child);
-            return <ul className = "navChild">{isObj(c.child)? c.child.map((m2, i) => <li className = "list" key = {m2.alias + i}><Link to = {`${m2.alias}`}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
+            return <ul className = "navChild">{isObj(c.child)? c.child.map((m2, i) => <li className = "list" key = {m2.alias + i}><Link to = {`/${m2.alias}/${m2.lang}`}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
         }
 
     }
@@ -68,7 +69,7 @@ export default function Menu(props) {
         <div className="menu">
             <div className="container">
                 <ul className="nav justify-content-center">
-                    {cildMenu(props).map((m, i) => <li className="nav-link text-center" key={m.names + i}><Link to = {`${m.alias}`}>{m.names}</Link>
+                    {cildMenu({menu:SELECTGETMENU}).filter((f)=>f.lang === urlMdRu(document.baseURI)).map((m, i) => <li className="nav-link text-center" key={m.names + i}><Link to = {m.alias === "/" || m.alias === "md"?m.alias === "/"? m.alias:"/" + m.alias:"/" + m.alias + `/${m.lang}`}>{m.names}</Link>
                         {(isObj(m.child) ) ? cildRecursion(m) : ""}
                     </li>)}
                 </ul>

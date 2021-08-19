@@ -8,14 +8,10 @@ export default function HeadPage(props) {
 
         <div className="row">
             <div className="col-1"></div>
-            
-
                 <Logo />
                 <MessageButton />
-                <Tel />
+                <Tel tel = {props.tel}/>
                 <Lang />
-
-           
             <div className="col-1"></div>
         </div>
 

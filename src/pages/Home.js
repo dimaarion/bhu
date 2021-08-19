@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from "react";
+import { get, urlMdRu, alias } from "../action";
+import { useDispatch, useSelector } from "react-redux";
+import Article from "./Article";
+import Icons from "../icons/Icons";
+import Vector from "../svg/Vector";
+export default function Home(props) {
+    const [artMenu, setArtMenu] = useState([{}]);
+    const SELECTGETMENU = useSelector((state) => state.getMenu);
+    const JSONHOME = useSelector((state) => state.getHomeJson);
+    const[home, setHome] = useState({});
+    useEffect(() => {
+        let id = 1;
+        let len = "ru"
+        if (props.location.pathname === "/") {
+            id = 1;
+            len = "ru";
+        } else if (props.location.pathname === "/md") {
+            id = 2;
+            len = "md";
+        }
+
+
+        if (id.length !== 0) {
+            id = id;
+        }
+        get(setArtMenu, "artMenu.php", {
+            params: {
+                id: 1,
+                menu_id: id,
+                lang: len
+            }
+
+        });
+      
+    }, [props.location.pathname])
+    useEffect(()=>{
+      let js =  JSONHOME.filter((f)=>f.lang === urlMdRu(props.location.pathname)).map((x)=>x);
+      setHome(js);
+    },[JSONHOME,props.location.pathname])
+    return (
+        <div>
+            <img src="/img/okno2.jpg" />
+            <h2 className = "mt-3" onClick = {()=>console.log("")}>{'tyjtyj'}</h2>
+            <Icons />
+            <div className="row mt-3">
+                <div className="col-1"></div>
+                <div className="col-10 ">
+                    {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} lang={art.art_lang} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
+                </div>
+                <div className="col-1"></div>
+            </div>
+        </div>
+
+    )
+}

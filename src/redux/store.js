@@ -10,19 +10,17 @@ export function lang(state = "ru", action) {
     }
 }
 
-export function menuId(state = [1], action) {
+export function menuId(state = 0, action) {
     switch (action.type) {
         case "MENUID":
-        let alias =  action.menu.filter((x)=>x.alias === action.alias).map((m)=>m.menu_id);
-        if(alias.length === 0){
-            alias = [1]
-        }
-        return alias;       
+        return action.payload;       
     
         default:
            return state;
     }
 }
+
+
 
 export function getMenu(state = [{}], action){
      switch (action.type) {
@@ -50,7 +48,22 @@ export function getArticles(state = [{}], action){
            return state;
     }
 }
-
+export function getIcons(state = [{}], action){
+    switch (action.type) {
+        case "GETICONS":
+            return action.preload;
+        default:
+           return state;
+    }
+}
+export function getHomeJson(state = [{}], action){
+    switch (action.type) {
+        case "HOMEJSON":
+            return action.preload;
+        default:
+           return state;
+    }
+}
 
 export default combineReducers(
     {
@@ -58,6 +71,8 @@ export default combineReducers(
         menuId:menuId,
         getMenu:getMenu,
         getMenuArt:getMenuArt,
-        getArticles:getArticles
+        getArticles:getArticles,
+        getIcons:getIcons,
+        getHomeJson:getHomeJson
     }
     )
