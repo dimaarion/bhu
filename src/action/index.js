@@ -43,6 +43,5 @@ export function alias(b = "",a = "") {
     let c = b.split("/");
     let r = c.filter((f)=>f === a).map((x)=>x);
    return r[0];
-
-    
 }
+

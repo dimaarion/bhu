@@ -5,26 +5,40 @@ import Install from "../svg/Install";
 import Measure from "../svg/Measure";
 import Montaj from "../svg/Montaj";
 import Vector from "../svg/Vector";
-import {urlMdRu} from "../action";
+import { urlMdRu } from "../action";
+import "../css/icons.css";
 export default function Icons(props) {
     const [svgI, setSvgI] = useState([{}]);
     const SELECTICONS = useSelector((state) => state.getIcons);
-    let svgIcon = [{svg:<Measure />,name:"measure"}, {svg:<Montaj />,name:"montaj"}, {svg:<Install />,name:"install"}, {svg:<Cleaner />,name:"cleaner"}];
+    let svgIcon = [{ svg: <Measure />, name: "measure" }, { svg: <Montaj />, name: "montaj" }, { svg: <Install />, name: "install" }, { svg: <Cleaner />, name: "cleaner" }];
     useEffect(() => {
-        let svg = SELECTICONS.map((x, i) => x.content = { ru: x.ru,md: x.md, svg: svgIcon[i].svg ,name:svgIcon[i].name});
+        let svg = SELECTICONS.map((x, i) => x.content = { ru: x.ru, md: x.md, svg: svgIcon[i].svg, name: svgIcon[i].name });
         setSvgI(svg)
-console.log(svg)
+        console.log(svg)
     }, [SELECTICONS])
 
+    function iconDescript(f, d, r, m) {
+        return f(d) === "ru" ? r : m;
+    }
+
+    function stringArrList(f = "") {
+        return (
+            <ul>
+                {f.split(".").map((x) => <li>{x}</li>)}
+            </ul>
+        )
+
+    }
+
     return (
-        <div className="row col-sm mt-3">
+        <div className="row col-sm mt-3 icons">
             <div className="col-1"></div>
             <div className="col-10 ">
                 <div className="row">
-                    {svgI.map((x, i) => <div key = {x.name + "d"}  className="col-sm">
+                    {svgI.map((x, i) => <div key={x.name + "d"} className="col-sm">
                         {x.svg}
-                        <Vector/>
-                        <div>{ urlMdRu(document.baseURI) === "ru"?x.ru:x.md}</div>
+                        <Vector />
+                        <div>{stringArrList(iconDescript(urlMdRu, document.baseURI, x.ru, x.md))}</div>
                     </div>)}
                 </div>
             </div>
