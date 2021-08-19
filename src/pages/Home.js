@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Article from "./Article";
 import Icons from "../icons/Icons";
 import Vector from "../svg/Vector";
+import HomDisplay from "./HomDisplay";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
@@ -40,9 +41,8 @@ export default function Home(props) {
     },[JSONHOME,props.location.pathname])
     return (
         <div>
-            <img src="/img/okno2.jpg" />
-            <h2 className = "mt-3" onClick = {()=>console.log("")}>{'tyjtyj'}</h2>
-            <Icons />
+            
+         {Object.values(home).map((x)=> <HomDisplay key = {x.id + "hom"} name = {x.name} image = {x.image}/>) }
             <div className="row mt-3">
                 <div className="col-1"></div>
                 <div className="col-10 ">

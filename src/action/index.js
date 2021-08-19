@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const inital_base_url = 'http://sandaniprim.mdlocal';
+export const inital_base_url = 'http://adminpanel';
 
 
 
