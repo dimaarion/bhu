@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Route, Router, Switch } from 'react-router-dom'
 import ArticlesAll from './pages/ArticlesAll';
 import HeadPage from "./header/HeadPage";
-import { get, urlMdRu, setConnect, alias } from "./action";
+import { get, urlMdRu, setConnect, alias,scrollActive,resizeActive } from "./action";
 import Menu from './menu/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import Pages from './pages/Pages';
@@ -16,6 +16,10 @@ function App() {
   const [icons, setIcons] = useState([{}]);
   const [tel, setTel] = useState("");
   const [homeJson, setHomeJson] = useState([{}]);
+  const [sY, setSY] = useState(0);
+  const [sX, setSX] = useState(0);
+
+
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
   const LANGDisp = useDispatch();
@@ -33,6 +37,8 @@ function App() {
     get(setArticles, "articles.php");
     get(setIcons, "icons.php");
     get(setHomeJson, "home.php");
+    scrollActive(setSY);
+    resizeActive(setSX);
   }, [])
 
 
@@ -58,10 +64,26 @@ function App() {
   useEffect(()=>{
     HOMEJSON({type:"HOMEJSON", preload:homeJson});
   },[homeJson])
+
+  let windowWidth = true; 
+  let scrolls = true;
+  let scrollN = 125
+  if(sY < scrollN){
+    scrolls = false;
+  }else{
+    scrolls = true;
+  }
+
+  if(sX < 1600){
+    windowWidth = true;
+  }else{
+    windowWidth = false;
+  }
   return (
     <div className="container-fluid text-center p-0">
-      <HeadPage tel={tel} />
-      <Menu menu={SELECTGETMENU} lang={lang} />
+      {sX}
+     {sY < scrollN? <HeadPage tel={tel} />:""}
+      <Menu menu={SELECTGETMENU} lang={lang} scroll = {scrolls} resize = {windowWidth}  tel={tel}/>
       <Switch>
          <Route exact path={"/"} component={Home} />
          <Route exact path={"/md"} component={Home} />

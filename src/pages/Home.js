@@ -42,7 +42,7 @@ export default function Home(props) {
     return (
         <div>
             
-         {Object.values(home).map((x)=> <HomDisplay key = {x.id + "hom"} name = {x.name} image = {x.image}/>) }
+         {Object.values(home).map((x)=> <HomDisplay key = {x.id + "hom"} content = {x}/>) }
             <div className="row mt-3">
                 <div className="col-1"></div>
                 <div className="col-10 ">

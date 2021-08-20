@@ -14,7 +14,7 @@ export default function Icons(props) {
     useEffect(() => {
         let svg = SELECTICONS.map((x, i) => x.content = { ru: x.ru, md: x.md, svg: svgIcon[i].svg, name: svgIcon[i].name });
         setSvgI(svg)
-        console.log(svg)
+       
     }, [SELECTICONS])
 
     function iconDescript(f, d, r, m) {
@@ -32,17 +32,13 @@ export default function Icons(props) {
 
     return (
         <div className="row col-sm mt-3 icons">
-            <div className="col-1"></div>
-            <div className="col-10 ">
-                <div className="row">
+           
                     {svgI.map((x, i) => <div key={x.name + "d"} className="col-sm">
                         {x.svg}
                         <Vector />
                         <div>{stringArrList(iconDescript(urlMdRu, document.baseURI, x.ru, x.md))}</div>
                     </div>)}
-                </div>
-            </div>
-            <div className="col-1"></div>
+                
         </div>
 
     )

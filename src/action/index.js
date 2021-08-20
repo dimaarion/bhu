@@ -10,9 +10,9 @@ export function get(f, namef, params = {}) {
 
 }
 
-export function setConnect(f, namef ,params = {}) {
+export function setConnect(f, namef, params = {}) {
     axios.get(inital_base_url + "/adminpanel/pages/" + namef, params)
-    .then((rezult) =>f(rezult.data) )
+        .then((rezult) => f(rezult.data))
 }
 
 
@@ -26,22 +26,42 @@ export function arrayCount(n) {
 }
 
 export function urlMdRu(url = "") {
-    if(url !== ""){
-      let lang =  url.split("/").filter((x)=>x === "ru" || x === "md").map((x2)=>x2);
-      let r = "ru";
-      if(lang[0] === "md"){
-          return "md";
-      }else{
-          return "ru";
-      }
-      
+    if (url !== "") {
+        let lang = url.split("/").filter((x) => x === "ru" || x === "md").map((x2) => x2);
+        let r = "ru";
+        if (lang[0] === "md") {
+            return "md";
+        } else {
+            return "ru";
+        }
+
     }
-   
+
 }
 
-export function alias(b = "",a = "") {
+export function alias(b = "", a = "") {
     let c = b.split("/");
-    let r = c.filter((f)=>f === a).map((x)=>x);
-   return r[0];
+    let r = c.filter((f) => f === a).map((x) => x);
+    return r[0];
 }
+
+export function strArr(str = "", params = ".") {
+    return str !== null ? str.split(params) : [""];
+}
+
+export function scrollActive(f) {
+    window.onscroll = (e) => {
+        f(window.scrollY);
+    };
+
+}
+
+export function resizeActive(f) {
+     f(window.innerWidth)
+    window.onresize = (e) => {
+      f(window.innerWidth) 
+    };
+
+}
+
 

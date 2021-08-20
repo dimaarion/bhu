@@ -1,7 +1,19 @@
 import React from "react";
-export default function Logotype(params) {
+export default function Logotype(props) {
+    let w = "130";
+    let h = "170";
+    let vbox = "";
+  if(props.scroll === true){
+    w = "50";
+    h = "50";
+    vbox = "0, 0 ,150,150";
+  }else{
+    w = "130";
+    h = "170";
+    vbox = "";
+  }
     return (
-        <svg width="130" height="170">
+        <svg width={"130"} height={h} viewBox = {vbox}>
             <text x="0" y="42" className = "logoS" fill = "DarkGreen">SANDANI</text>
             <rect x="0" y="50" width="90" height="100" />
             <text x="150" y="55" transform = "rotate(90,126,25)" className = "logoP">PRIM</text>

@@ -2,10 +2,10 @@
     width: 100%;
     height: 100px;
     margin-top: 50px;
-    min-width: 200px;
+    min-width: 200px; 
+    font-size: 20pt;
 }
 .telList{
-    font-size: 20pt;
     float: left;
     width: 150px;
     

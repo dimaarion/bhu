@@ -1,0 +1,46 @@
+.headscrollBox{
+    position: fixed;
+    width: 100%; 
+    background-color: #fff;
+    z-index: 9000; 
+    top: 0px; 
+}
+.headscroll{
+    text-align: right;
+    width: 92%;
+    height: 80px;
+    padding-top: 10px;
+}
+.telscroll{
+    width: max-content;
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14pt;
+    background-color: #fff;
+}
+.teliconscroll{
+    display: inline-block;
+}
+.langscroll{
+    display: inline-block;
+    margin-top: -50px;
+    margin-left: 5%;
+}
+.messagescrollbox{
+    display: inline-block;
+    margin-right: 5%;
+    font-size: 14pt;
+    cursor: pointer;
+    color: green;
+}
+.messagescrollbox:hover{
+   color: #066706;
+   text-shadow: 1px 1px 3px #066706;
+}
+.logoscroll{
+    display: inline-block;
+    position: absolute;
+    left: 6.5%;
+    top: 0px;
+    margin: auto;
+}
