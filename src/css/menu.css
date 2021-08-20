@@ -8,6 +8,7 @@
 .menu ul li{
     list-style: none;
     transition: 1s;
+    position: relative;
 }
 .menu ul li:hover{
     background-color: rgb(1, 134, 1);
@@ -15,10 +16,11 @@
 .menu ul li a{
     color: #ffffff;
     display: block;
+    text-decoration: none;
 }
 .menu ul li a:hover{
-    text-decoration: none;
-    position: relative;
+   
+    
 }
 .menu ul li ul{
     padding: 0px;
@@ -50,7 +52,9 @@
 .menu ul li ul li a:hover{
     margin-left: 5px;
 }
-
+.menu ul li ul li ul{
+   display: none;
+}
 
 .menu ul li ul li a{
     transition: 1s  ;
@@ -61,6 +65,6 @@
 
 
 
-.menu ul li:hover ul{
+.menu ul li:hover > ul{
     display: block;
 }
