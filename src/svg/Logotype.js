@@ -10,7 +10,7 @@ export default function Logotype(props) {
   }else{
     w = "130";
     h = "170";
-    vbox = "";
+    vbox = "0,0,150,150";
   }
     return (
         <svg width={"130"} height={h} viewBox = {vbox}>

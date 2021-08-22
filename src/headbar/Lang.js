@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React  from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {urlMdRu, scrollActive} from "../action";
+import {urlMdRu} from "../action";
 import "../css/lang.css";
 export default function Lang(props) {
 const LANG = useDispatch();
-const SELECTLANG =useSelector((state)=>state.lang);
 const MENUID = useDispatch();
 
     return (

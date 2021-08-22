@@ -8,13 +8,13 @@ export default function HomDisplay(props) {
         return (
             <div key = {props.name + "profile"} className = "col-sm">
                 <h4>{props.name}</h4>
-                <table class="table">
+                <table className="table">
                     <tbody>
                         <tr>
-                            <td scope="row" rowSpan = "2"><img width = "100%" src = {props.image} alt = {props.name}/></td>
+                            <th scope="row" rowSpan = "2"><img width = "100%" src = {props.image} alt = {props.name}/></th>
                             <td className = "text-left">{props.descript}</td>
                         </tr>
-                        <tr><td className = "text-left">{strArr(props.specific,"~").map((x)=><div><Check/>{x}</div>)}</td></tr>
+                        <tr><td className = "text-left">{strArr(props.specific,"~").map((x,i)=><div key = {i + "check"}><Check/>{x}</div>)}</td></tr>
                         
                     </tbody>
                 </table>
@@ -23,7 +23,7 @@ export default function HomDisplay(props) {
     }
     return (
         <div>
-            <img src={props.content.image} width = "100%" />
+            <img src={props.content.image} width = "100%" alt = {props.content.winInMd} />
             <div className="row">
                 <div className="col-1"></div>
                 <div className="col-10 ">

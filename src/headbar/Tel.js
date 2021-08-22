@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../css/tel.css";
 export default function Tel(props) {
 

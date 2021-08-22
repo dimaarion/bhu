@@ -1,8 +1,6 @@
 import React from "react";
-import { arrayCount } from "../action";
 export default function Montaj(props) {
-    let pX = 5;
-    let pY = 2;
+   
         return (
             <svg width="78" height="78">
                 <rect x="0" y="0" width="70" height="15" stroke="#000" fill="#000" transform="rotate(45,0,30)" />

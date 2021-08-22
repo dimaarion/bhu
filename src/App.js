@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Router, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import ArticlesAll from './pages/ArticlesAll';
 import HeadPage from "./header/HeadPage";
-import { get, urlMdRu, setConnect, alias,scrollActive,resizeActive } from "./action";
+import { get,scrollActive,resizeActive } from "./action";
 import Menu from './menu/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import Pages from './pages/Pages';
 import Home from './pages/Home';
-import Icons from './icons/Icons';
+import ErrorPaje from './pages/ErrorPaje';
+
+
 
 function App() {
   const [menu, setMenu] = useState([{}]);
@@ -22,13 +24,10 @@ function App() {
 
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
-  const LANGDisp = useDispatch();
-  const SELECTMENUID = useSelector((store) => store.menuId);
   const SELECARTICLES = useSelector((store) => store.getArticles);
   const GETMENU = useDispatch();
   const GETMENUART = useDispatch();
   const GETARTICLES = useDispatch();
-  const MENUID = useDispatch();
   const GETICONS = useDispatch();
   const HOMEJSON = useDispatch();
   useEffect(() => {
@@ -47,43 +46,44 @@ function App() {
 
   useEffect(() => {
     GETMENU({ type: "GETMENU", preload: menu });
-  }, [menu])
+  }, [menu,GETMENU])
 
   useEffect(() => {
     GETMENUART({ type: "GETMENUART", preload: artMenu });
-  }, [artMenu])
+  }, [artMenu,GETMENUART])
 
   useEffect(() => {
     GETARTICLES({ type: "GETARTICLES", preload: articles });
-  }, [articles])
+  }, [articles,GETARTICLES])
 
   useEffect(()=>{
     GETICONS({type:"GETICONS", preload:icons});
-  },[icons])
+  },[icons,GETICONS])
 
   useEffect(()=>{
     HOMEJSON({type:"HOMEJSON", preload:homeJson});
-  },[homeJson])
+  },[homeJson,HOMEJSON])
 
   let windowWidth = true; 
   let scrolls = true;
-  let scrollN = 125
+  let scrollN = 125;
+  let winSize = 1600;
   if(sY < scrollN){
     scrolls = false;
   }else{
     scrolls = true;
   }
 
-  if(sX < 1600){
+  if(sX < winSize){
     windowWidth = true;
   }else{
     windowWidth = false;
   }
   return (
     <div className="container-fluid text-center p-0">
-      {sX}
+     
      {sY < scrollN? <HeadPage tel={tel} />:""}
-      <Menu menu={SELECTGETMENU} lang={lang} scroll = {scrolls} resize = {windowWidth}  tel={tel}/>
+      <Menu menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>
       <Switch>
          <Route exact path={"/"} component={Home} />
          <Route exact path={"/md"} component={Home} />

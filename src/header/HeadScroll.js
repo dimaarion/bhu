@@ -1,7 +1,5 @@
 import React from "react";
-import Logo from "../headbar/Logo";
 import MessageButton from "../headbar/MessageButton";
-import Tel from "../headbar/Tel";
 import { strArr } from "../action";
 import "../css/headscroll.css"
 import TelScroll from "../svg/TelScroll";
@@ -15,7 +13,7 @@ export default function HeadScroll(props) {
                 <div className = "logoscroll"><Logotype scroll = {props.scroll}/></div>
                 <MessageButton scroll = {props.scroll}/>
                 <div className="teliconscroll"><TelScroll /></div>
-                {strArr(props.tel, ",").map((x) => <div className="telscroll">{x}</div>)}
+                {strArr(props.tel, ",").map((x, i) => <div key = {i + "tel"} className="telscroll">{x}</div>)}
                 <div className = "langscroll"><Lang/></div>
             </div>
 

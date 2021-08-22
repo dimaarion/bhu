@@ -1,39 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createElement } from "react";
 import "../css/menu.css";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { urlMdRu } from "../action";
 import HeadScroll from "../header/HeadScroll";
 import MenuMobile from "../mobile/MenuMobile";
+
 export default function Menu(props) {
     useEffect(() => {
-        childRemove();
+        childRemove(document);
+       affterIconDisplay(document);
     }, [props])
-    const MENUID = useDispatch();
-    const lang = useSelector((state) => state.lang);
+    useEffect(() => {
+        
+    }, [])
+    
     const SELECTGETMENU = useSelector((state) => state.getMenu);
 
+     function affterIconDisplay(d = document) {
+        let li = d.getElementsByClassName("list");
+        if (li !== null) {
+            li = Array.from(li)
+            li.map((x) => {
+                Object.values(x.children).filter((f)=>f.tagName === "UL").map((l)=>{
+                   
+                   console.log(l.parentElement.className = "list iconChild");
+                    
+                });
+              //  
+//console.log(div);
+                //x.parentElement.appendChild(div);
+            })
+        }
+     } 
 
+    function childRemove(d = document) {
+        let ul = d.getElementsByClassName("navChild");
+        if (ul !== null) {
+            ul = Array.from(ul)
+            ul.map((x, i) => {
+                if (x.innerHTML === "") {
+                    x.remove();
+                    x.className = "navChild td"
+                }
+            })
+        }
 
-
-
-    function childRemove() {
-        let ul = document.getElementsByClassName("navChild");
-        ul = Array.from(ul)
-        ul.map((x, i) => {
-
-            if (x.innerHTML === "") {
-                x.remove();
-            }
-            if (x.parentElement !== null && x.parentElement.className === "list") {
-                x.parentElement.style.width = 186 + "px";
-                x.parentElement.style.height = 38 + "px"
-                x.style.marginLeft = x.parentElement.style.width;
-                let h = Number.isInteger(x.parentElement.style.height.replace("px", ""));
-                x.style.marginTop = - 32 + "px";
-            }
-
-        })
     }
 
     function isObj(obj) {
@@ -72,17 +84,18 @@ export default function Menu(props) {
 
     }
 
-   
+
     let menuScrolls = "menu scrollactive";
-    let menuMobile = "menumobile";
+    let scrollactiveMob = "menumobile scrollactiveMob";
+    let menuMobile = "menumobile ";
     let containerFluid = "container-fluid";
     return (
         <div>
-            {props.resize === true?<MenuMobile/>:""}
-            {props.scroll === true  ? <HeadScroll tel={props.tel} scroll = {props.scroll} /> : ""}
-            <div className={props.resize === true?menuMobile:props.scroll === true  ? menuScrolls :"menu"} >
-                <div className={props.resize === true?containerFluid:"container"}>
-                    <ul className={props.resize === true?"nav flex-column ":"nav justify-content-center"}>
+            {props.resize === true ? <MenuMobile scroll={props.scroll} /> : ""}
+            {props.scroll === true ? <HeadScroll tel={props.tel} scroll={props.scroll} /> : ""}
+            <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : "menu"} >
+                <div className={props.resize === true ? containerFluid : "container"}>
+                    <ul style={props.resize === true ? { display: "none" } : { display: "flex" }} className={props.resize === true ? "nav flex-column " : "nav justify-content-center"}>
                         {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.lang === urlMdRu(document.baseURI)).map((m, i) => <li className="nav-link text-center" key={m.names + i}><Link to={m.alias === "/" || m.alias === "md" ? m.alias === "/" ? m.alias : "/" + m.alias : "/" + m.alias + `/${m.lang}`}>{m.names}</Link>
                             {(isObj(m.child)) ? cildRecursion(m) : ""}
                         </li>)}

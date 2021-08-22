@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { get, urlMdRu,alias } from "../action";
+import {useSelector } from "react-redux";
+import { get,alias } from "../action";
 import Article from "./Article";
 
 export default function ArticlesAll(props) {
   const [artMenu, setArtMenu] = useState([{}]);
-  const [art, setArt] = useState([{}]);
-  const SELECTMENUID = useSelector((store) => store.menuId);
-  const SELECTGETMENUART = useSelector((state) => state.getMenuArt);
-  const SELECARTICLES = useSelector((store) => store.getArticles); 
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   useEffect(() => {
     let id = SELECTGETMENU.filter((f)=>f.alias !== "ru"  && f.alias !== "md"  && f.alias === alias(props.location.pathname,f.alias)).map((x)=>x.menu_id);

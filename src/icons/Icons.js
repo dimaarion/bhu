@@ -24,7 +24,7 @@ export default function Icons(props) {
     function stringArrList(f = "") {
         return (
             <ul>
-                {f.split(".").map((x) => <li>{x}</li>)}
+                {f.split(".").map((x,i) => <li key = {i + "list"}>{x}</li>)}
             </ul>
         )
 

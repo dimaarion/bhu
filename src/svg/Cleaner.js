@@ -1,5 +1,4 @@
 import React from "react";
-import { arrayCount } from "../action";
 export default function Cleaner(props) {
     let pX = 0;
     let pY = -10;

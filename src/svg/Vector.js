@@ -1,5 +1,4 @@
 import React from "react";
-import { arrayCount } from "../action";
 export default function Vector(props) {
     let cx = 50 + "%";
     let cy = 15;

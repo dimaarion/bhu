@@ -1,5 +1,4 @@
 import React from "react";
-import { arrayCount } from "../action";
 export default function Install(props) {
     let pX = 4;
     let pY = 4;
