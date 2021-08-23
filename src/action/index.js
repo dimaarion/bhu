@@ -64,4 +64,26 @@ export function resizeActive(f) {
 
 }
 
-
+export function headers(props) {
+    let title = [];
+    
+    if(props.menu){
+         title  = props.menu.filter((f)=>f.alias !== "ru"  && f.alias !== "md"  && f.alias === alias(props.location,f.alias)).map((x)=>x.title);
+    }else if(props.art){
+         title = props.art.filter((f)=>f.art_alias === alias(props.location,f.art_alias)).map((x)=>x.art_title);
+    }else if(props.hom){
+        let location = props.location.replace(/[/]/g,"");
+        if(location === ""){
+            location = "/";
+        }else{
+            location = props.location.replace(/[/]/g,"");
+        }
+         title = props.hom.filter((f)=>f.alias === location).map((x)=>x.title);
+   }else{
+         title = ["/"];
+    }
+    if(title[0] !== undefined){
+        document.title = title[0];
+    }
+    
+}

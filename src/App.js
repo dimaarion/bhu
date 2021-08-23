@@ -7,7 +7,8 @@ import Menu from './menu/Menu';
 import { useDispatch, useSelector } from 'react-redux';
 import Pages from './pages/Pages';
 import Home from './pages/Home';
-import ErrorPaje from './pages/ErrorPaje';
+import Message from './message/Message';
+
 
 
 
@@ -89,7 +90,9 @@ function App() {
          <Route exact path={"/md"} component={Home} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias + "/:lang"} component={ArticlesAll} />)}
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias + "/" + x.art_lang} component={Pages} />)}
+         <Route path = "/message" component = {Message} />
       </Switch>
+    
     </div>
 
   );

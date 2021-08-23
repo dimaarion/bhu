@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useSelector } from "react-redux";
-import { get,alias } from "../action";
+import { get,alias,headers } from "../action";
 import Article from "./Article";
 
 export default function ArticlesAll(props) {
@@ -20,10 +20,13 @@ export default function ArticlesAll(props) {
       }
 
     });
+    
    
   }, [props.match.params])
 
-  
+  useEffect(()=>{
+    headers({menu:SELECTGETMENU,location:props.location.pathname})
+  },[SELECTGETMENU])
   
   return (
     <div className="row mt-3">

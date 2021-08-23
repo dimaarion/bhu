@@ -3,7 +3,7 @@
     text-align: center;
     margin-top: 50px;
     border: solid 1px #cccccc;
-    color: #187751;
+    
     font-size: 16pt;
     min-width: 200px;
     transition: 0.6s;
@@ -11,4 +11,11 @@
 }
 .message:hover{
    background-color: rgb(243, 243, 243);
+}
+.message a{
+    text-decoration: none;
+    color: #187751;
+}
+.lab{
+    color: green;
 }

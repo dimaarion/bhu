@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { get, urlMdRu, alias } from "../action";
+import { get, urlMdRu, headers } from "../action";
 import { useDispatch, useSelector } from "react-redux";
 import Article from "./Article";
 import Icons from "../icons/Icons";
@@ -39,6 +39,9 @@ export default function Home(props) {
       let js =  JSONHOME.filter((f)=>f.lang === urlMdRu(props.location.pathname)).map((x)=>x);
       setHome(js);
     },[JSONHOME,props.location.pathname])
+    useEffect(()=>{
+        headers({hom:SELECTGETMENU,location:props.location.pathname})
+      },[SELECTGETMENU,props.location.pathname])
     return (
         <div>
             

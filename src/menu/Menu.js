@@ -23,13 +23,8 @@ export default function Menu(props) {
             li = Array.from(li)
             li.map((x) => {
                 Object.values(x.children).filter((f)=>f.tagName === "UL").map((l)=>{
-                   
-                   console.log(l.parentElement.className = "list iconChild");
-                    
+                   l.parentElement.className = "list iconChild";    
                 });
-              //  
-//console.log(div);
-                //x.parentElement.appendChild(div);
             })
         }
      } 
@@ -41,7 +36,6 @@ export default function Menu(props) {
             ul.map((x, i) => {
                 if (x.innerHTML === "") {
                     x.remove();
-                    x.className = "navChild td"
                 }
             })
         }
