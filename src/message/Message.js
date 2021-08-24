@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { urlMdRu } from "../action";
 import "../css/lang.css";
+import Check from "../svg/Check";
 import TelScroll from "../svg/TelScroll";
 export default function Message(props) {
     const [name, setName] = useState({ str: "", count: 0 });
@@ -65,7 +66,7 @@ export default function Message(props) {
 
                                 <label htmlFor="username">Ф. И. О.<span className = "lab" id="namespan "> {name.str} </span></label>
                                 <input onKeyUp={(e) => setName(nameM(e))} className="username" type="text" className="form-control" id="username" placeholder="Ф. И. О." />
-                                
+                                <Check size = {20}/>
 
                             </div>
                             <div className="col-md mb-3 ">
