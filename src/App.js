@@ -21,7 +21,7 @@ function App() {
   const [homeJson, setHomeJson] = useState([{}]);
   const [sY, setSY] = useState(0);
   const [sX, setSX] = useState(0);
-
+  const [getMessage, setGetMessage] = useState([{}]);
 
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
@@ -90,7 +90,7 @@ function App() {
          <Route exact path={"/md"} component={Home} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias + "/:lang"} component={ArticlesAll} />)}
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias + "/" + x.art_lang} component={Pages} />)}
-         <Route path = "/message" component = {Message} />
+         <Route path = "/message/:lang" component = {Message} />
       </Switch>
     
     </div>
