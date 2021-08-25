@@ -11,6 +11,7 @@ export default function Message(props) {
     const [maill, setMaill] = useState({ str: "", count: 0,valid:false });
     const [theme, setTheme] = useState({ str: "", count: 0,valid:false });
     const [message, setMessage] = useState({ str: "", count: 0,valid:false });
+    const [mouse, setMouse] = useState({ x: 0, y: 0 });
     const [getMessage, setGetMessage] = useState("");
     const [submit, setSubmit] = useState(0);
     const HOMEJSON = useSelector((state) => state.getHomeJson);
@@ -20,23 +21,22 @@ export default function Message(props) {
         params:{ 
             username:name.str,
             usertel:tel.str,
-            usermail:maill.str.search(/[@]/)?maill.str:"",
+            usermail:maill.str,
             theme:theme.str,
             message:message.str,
             namehidden:name.count,
             telhidden:tel.count,
-            mailhidden:maill.str.search(/[@]/)?maill.count:0,
+            mailhidden:maill.count,
             themehidden:theme.count,
             messagehidden:message.count,
-            lang:props.match.params.lang
+            lang:props.match.params.lang,
+            mx:mouse.x,
+            my:mouse.y
         }
     });
-
-    console.log(maill.str.search(/[@]/));
    },[submit])
     
     function replases(e, preg,v) {
-        let count = 0;
         let el = "";
         el = e.target.value;
         el = el.replace(preg, "");
@@ -102,15 +102,14 @@ export default function Message(props) {
         return (
 
             <div key={props.lang + "message"}>
-                {getMessage + " / " + submit}
-                <div className="container " id="messagePages">
+                <h2 className = {getMessage[1] === 0?"noMessage":"yesMessage"}>{getMessage[0]}</h2>
+                <div className="container " id="messagePages" onMouseMove = {(e)=>setMouse({x:e.clientX,y:e.clientY})}>
                     <h2>{props.name}</h2>
                     <p>{props.descript}</p>
                     <p>{props.warning}</p>
                     <div className="row">
                         <div className="col-sm-3"></div>
                         <div className="col-sm text-left">
-
                             <div className="form">
                                 <div className="col-md mb-3">
                                     <label htmlFor="username">{props.familie}<span className="lab" id="namespan "> {name.str} </span></label>

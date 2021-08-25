@@ -25,9 +25,9 @@
     right: 0px;  
     margin-top: -38px;
 }
-.ndp{
-  
+.noMessage{
+  color: red;
 }
-.dp{
-   
+.yesMessage{
+   color: green;
 }
