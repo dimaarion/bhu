@@ -98,3 +98,11 @@ export function headers(props) {
     }
 
 }
+
+
+export function imagesZoom(f) {
+    Array.from(document.getElementsByTagName('img')).map((x)=>x.onclick = (e)=>f({src:e.target.src,alt:e.target.alt})); 
+    Array.from(document.getElementsByTagName('img')).map((x)=>x.onmouseover = (e)=>{
+        e.target.style.cursor = "zoom-in";
+    });
+}

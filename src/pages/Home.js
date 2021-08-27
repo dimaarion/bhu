@@ -2,14 +2,16 @@ import React, { useEffect, useState } from "react";
 import { get, urlMdRu, headers } from "../action";
 import { useDispatch, useSelector } from "react-redux";
 import Article from "./Article";
-import Icons from "../icons/Icons";
-import Vector from "../svg/Vector";
 import HomDisplay from "./HomDisplay";
+import Menu from "../menu/Menu";
+import HeadPage from "../header/HeadPage";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
     const JSONHOME = useSelector((state) => state.getHomeJson);
-    const[home, setHome] = useState({});
+    const [home, setHome] = useState({});
+
+    
     useEffect(() => {
         let id = 1;
         let len = "ru"
@@ -33,19 +35,21 @@ export default function Home(props) {
             }
 
         });
-      
+
     }, [props.location.pathname])
-    useEffect(()=>{
-      let js =  JSONHOME.filter((f)=>f.lang === urlMdRu(props.location.pathname)).map((x)=>x);
-      setHome(js);
-    },[JSONHOME,props.location.pathname])
-    useEffect(()=>{
-        headers({hom:SELECTGETMENU,location:props.location.pathname})
-      },[SELECTGETMENU,props.location.pathname])
+    useEffect(() => {
+        let js = JSONHOME.filter((f) => f.lang === urlMdRu(props.location.pathname)).map((x) => x);
+        setHome(js);
+    }, [JSONHOME, props.location.pathname])
+    useEffect(() => {
+        headers({ hom: SELECTGETMENU, location: props.location.pathname })
+    }, [SELECTGETMENU, props.location.pathname])
     return (
         <div>
-            
-         {Object.values(home).map((x)=> <HomDisplay key = {x.id + "hom"} content = {x}/>) }
+
+            {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+            <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+            {Object.values(home).map((x) => <HomDisplay key={x.id + "hom"} content={x} />)}
             <div className="row mt-3">
                 <div className="col-1"></div>
                 <div className="col-10 ">

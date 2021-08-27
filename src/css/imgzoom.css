@@ -1,0 +1,24 @@
+.img_zoom{
+    position: fixed;
+    margin: auto;
+    top: 0;
+    right:0;
+    left: 0;
+    bottom: 0;
+    z-index: 15000;
+    background-color: black;
+    
+}
+.img_zoom img{
+   height: 100%;
+}
+.img_zoom h2{
+   margin-top: -50px;
+ }
+.img_zoom svg{
+    font-size: 16pt;
+}
+.img_zoom .close{
+    
+    cursor:pointer;
+}
