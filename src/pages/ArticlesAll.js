@@ -35,7 +35,7 @@ export default function ArticlesAll(props) {
     <div>
 
       {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
-      <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+      <Menu menu={SELECTGETMENU} lang={props.lang} url = {props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
       <div className="row mt-3">
         <div className="col-1"></div>
         <div className="col-10 ">

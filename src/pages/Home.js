@@ -49,7 +49,7 @@ export default function Home(props) {
         <div>
 
             {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
-            <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+            <Menu menu={SELECTGETMENU} url = {props.match.url} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             {Object.values(home).map((x) => <HomDisplay key={x.id + "hom"} content={x} />)}
             <div className="row mt-3">
                 <div className="col-1"></div>

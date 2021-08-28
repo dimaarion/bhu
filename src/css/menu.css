@@ -13,6 +13,10 @@
 .menu ul li:hover{
     background-color: rgb(1, 134, 1);
 }
+
+.menu_active{
+    background-color: rgb(1, 134, 1);
+}
 .menu ul li a{
     color: #ffffff;
     display: block;
@@ -46,6 +50,10 @@
     background-color: rgb(255, 255, 255);
     border-left: solid 3px darkgreen;
    
+}
+.menu_li_active{
+    background-color: rgb(255, 255, 255);
+    border-left: solid 3px darkgreen !important;
 }
 
 .menu ul li ul li a:hover{
