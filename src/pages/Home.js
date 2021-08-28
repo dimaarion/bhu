@@ -5,6 +5,7 @@ import Article from "./Article";
 import HomDisplay from "./HomDisplay";
 import Menu from "../menu/Menu";
 import HeadPage from "../header/HeadPage";
+import Footer from "../footer/Footer";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
@@ -57,6 +58,7 @@ export default function Home(props) {
                 </div>
                 <div className="col-1"></div>
             </div>
+            <Footer/>
         </div>
 
     )

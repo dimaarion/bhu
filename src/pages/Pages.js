@@ -4,6 +4,7 @@ import Article from "./Article";
 import { alias, headers } from "../action";
 import Menu from "../menu/Menu";
 import HeadPage from "../header/HeadPage";
+import Footer from "../footer/Footer";
 export default function Pages(props) {
     const SELECTGETMENU = useSelector((state) => state.getMenu);
     const SELECARTICLES = useSelector((store) => store.getArticles);
@@ -12,9 +13,9 @@ export default function Pages(props) {
     }, [SELECARTICLES])
     return (
         <div>
-            
-            {props.sY < props.scrollN? <HeadPage tel={props.tel} />:""}
-           <Menu menu={SELECTGETMENU} lang={props.lang} scroll = {props.scroll} sX = {props.sX} winSize = {props.winSize} resize = {props.resize}  tel={props.tel}/>
+
+            {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+            <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             <div className="row mt-3">
                 <div className="col-1"></div>
                 <div className="col-10 ">
@@ -22,7 +23,7 @@ export default function Pages(props) {
                 </div>
                 <div className="col-1"></div>
             </div>
-
+            <Footer />
         </div>
 
     )

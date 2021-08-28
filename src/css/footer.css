@@ -1,0 +1,9 @@
+.footer{
+    height: 200px;
+    background-color: #0d570d;
+    color: #fff;
+}
+.footer .date{
+    margin-top: 100px;
+    display: inline-block;
+}

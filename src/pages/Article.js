@@ -5,12 +5,17 @@ export default function Article(props) {
     function createMarkup(content = "") {
         return { __html: content };
     }
+
+    function contentSeparator(str = "", n = 20) {
+        let s = str;
+        return s.split(">").filter((f)=>f !=="").map((x)=>x + ">").filter((f2, i)=>i < n).join("");
+    }
    
     if (props.countArt > 1) {
         return (
             <div className="article">
                 <h2 className="text-center">{props.name}</h2>
-                <div className="content" dangerouslySetInnerHTML={createMarkup(props.subContent)} />
+                <div className="content" dangerouslySetInnerHTML={createMarkup(contentSeparator(props.content,100))} />
                 <div className="buttons text-right"><Link className="btn btn-success" to={`/${props.alias}/${props.lang}`}>{props.lang === "ru"?"Подробнее ...":"Mai detaliat ..."}</Link></div>
             </div>
         )
