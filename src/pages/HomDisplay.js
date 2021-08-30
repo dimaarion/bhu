@@ -29,7 +29,7 @@ export default function HomDisplay(props) {
         )
     }
     return (
-        <div className="homdisplay">
+        <article className="homdisplay">
             <img src={props.content.image} width="100%" alt={props.content.winInMd} />
             <div className="row">
                 <div className="col-1"></div>
@@ -47,6 +47,6 @@ export default function HomDisplay(props) {
                 </div>
             </div>
             <div className="col-1"></div>
-        </div>
+        </article>
     )
 }

@@ -1,19 +1,25 @@
 import axios from 'axios'
 
-export const inital_base_url = 'http://adminpanel';
+ let inital_base_url = 'http://adminpanel';
+ console.log(window.location.protocol);
+if (window.location.hostname === "localhost") {
+    inital_base_url = 'http://adminpanel';
+}else{
+   inital_base_url = window.location.protocol + "//" + window.location.hostname; 
+   }
 
 const instance = axios.create({
     headers: { 'Content-Type': 'multipart/form-data' }
 });
 
 export function get(f, namef, params = {}) {
-    axios.get(inital_base_url + "/adminpanel/pages/" + namef, params)
+    axios.get(inital_base_url + "/pages/" + namef, params)
         .then((rezult) => { f(rezult.data); })
 
 }
 export function post(namef, params = {}) {
     axios.post(
-        inital_base_url + "/adminpanel/pages/" + namef,
+        inital_base_url + "/pages/" + namef,
         params,
        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}
         
@@ -22,7 +28,7 @@ export function post(namef, params = {}) {
 }
 
 export function setConnect(f, namef, params = {}) {
-    axios.get(inital_base_url + "/adminpanel/pages/" + namef, params)
+    axios.get(inital_base_url + "/pages/" + namef, params)
         .then((rezult) => f(rezult.data))
 }
 

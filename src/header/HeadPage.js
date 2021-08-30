@@ -6,14 +6,14 @@ import Lang from "../headbar/Lang";
 export default function HeadPage(props) {
     return (
 
-        <div className="row">
+        <header className="row">
             <div className="col-1"></div>
                 <Logo />
                 <MessageButton />
                 <Tel tel = {props.tel}/>
                 <Lang />
             <div className="col-1"></div>
-        </div>
+        </header>
 
 
 

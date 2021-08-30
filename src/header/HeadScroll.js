@@ -8,7 +8,7 @@ import Logotype from "../svg/Logotype";
 export default function HeadScroll(props) {
     return (
 
-        <div className="headscrollBox">
+        <header className="headscrollBox">
             <div className="headscroll">
                 <div className = "logoscroll"><Logotype scroll = {props.scroll}/></div>
                 <MessageButton scroll = {props.scroll}/>
@@ -17,7 +17,7 @@ export default function HeadScroll(props) {
                 <div className = "langscroll"><Lang/></div>
             </div>
 
-        </div>
+        </header>
 
 
 

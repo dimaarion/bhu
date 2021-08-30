@@ -17,6 +17,9 @@
 .menu_active{
     background-color: rgb(1, 134, 1);
 }
+.menu_active >a{
+    color: #ffffff !important;
+}
 .menu ul li a{
     color: #ffffff;
     display: block;
@@ -136,7 +139,7 @@
     text-align: left !important;
     list-style: none;
     padding-left: 10px;
-    margin-top: -14px;
+    
 
 }
 .menumobile ul li ul{
