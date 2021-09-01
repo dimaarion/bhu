@@ -5,6 +5,7 @@ import Footer from "../footer/Footer";
 import HeadPage from "../header/HeadPage";
 import Menu from "../menu/Menu";
 import Article from "./Article";
+import HeadScroll from "../header/HeadScroll";
 
 export default function ArticlesAll(props) {
   const [artMenu, setArtMenu] = useState([{}]);
@@ -34,7 +35,7 @@ export default function ArticlesAll(props) {
   return (
     <div>
 
-      {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+      {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
       <Menu menu={SELECTGETMENU} lang={props.lang} url = {props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
       <div className="row mt-3">
         <div className="col-1"></div>

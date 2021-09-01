@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { get, urlMdRu, headers } from "../action";
+import { get, urlMdRu, headers,stylesScrollTop } from "../action";
 import { useDispatch, useSelector } from "react-redux";
 import Article from "./Article";
 import HomDisplay from "./HomDisplay";
 import Menu from "../menu/Menu";
 import HeadPage from "../header/HeadPage";
 import Footer from "../footer/Footer";
+import HeadScroll from "../header/HeadScroll";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
@@ -45,12 +46,14 @@ export default function Home(props) {
     useEffect(() => {
         headers({ hom: SELECTGETMENU, location: props.location.pathname })
     }, [SELECTGETMENU, props.location.pathname])
+
+    
     return (
         <div>
 
-            {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+            {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
             <Menu menu={SELECTGETMENU} url = {props.match.url} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
-            {Object.values(home).map((x) => <HomDisplay key={x.id + "hom"} content={x} />)}
+            <div style = {stylesScrollTop(props)}>{Object.values(home).map((x) => <HomDisplay key={x.id + "hom"} content={x} />)}</div>
             <div className="row mt-3">
                 <div className="col-1"></div>
                 <div className="col-10 ">

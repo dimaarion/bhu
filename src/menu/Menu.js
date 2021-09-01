@@ -89,7 +89,7 @@ export default function Menu(props) {
       return  a === b ? active : a === "/" + b ? active : a === "/" + b + "/ru" || a === "/" + b + "/md" ? active : noActive;
     }
     return (
-        <nav>
+        <nav className = "container-menu">
             {props.resize === true ? <MenuMobile scroll={props.scroll} /> : ""}
             {props.scroll === true ? <HeadScroll tel={props.tel} scroll={props.scroll} /> : ""}
             <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : "menu"} >

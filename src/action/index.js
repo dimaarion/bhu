@@ -1,16 +1,11 @@
 import axios from 'axios'
 
  let inital_base_url = 'http://adminpanel';
- console.log(window.location.protocol);
 if (window.location.hostname === "localhost") {
     inital_base_url = 'http://adminpanel';
 }else{
    inital_base_url = window.location.protocol + "//" + window.location.hostname; 
    }
-
-const instance = axios.create({
-    headers: { 'Content-Type': 'multipart/form-data' }
-});
 
 export function get(f, namef, params = {}) {
     axios.get(inital_base_url + "/pages/" + namef, params)
@@ -112,3 +107,22 @@ export function imagesZoom(f) {
         e.target.style.cursor = "zoom-in";
     });
 }
+export function stylesScrollTop(props) {
+    
+    let styles = {
+        scroll:{
+            marginTop:"220px"
+        },
+        noScroll:{
+            marginTop:"0px",
+            
+        },
+        scrollSize:{
+            margin:"auto",
+            position:"relative",
+            top:"50px"
+
+        }
+    }
+    return props.sY < props.scrollN?props.sX < 800?styles.scrollSize:styles.noScroll:props.sX < 800?styles.scrollSize:styles.scroll;
+} 

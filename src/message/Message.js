@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { urlMdRu, get, post } from "../action";
+import {  useSelector } from "react-redux";
+import {get,stylesScrollTop } from "../action";
 import "../css/lang.css";
+import Footer from "../footer/Footer";
 import HeadPage from "../header/HeadPage";
 import Menu from "../menu/Menu";
 import Check from "../svg/Check";
 import TelScroll from "../svg/TelScroll";
+import HeadScroll from "../header/HeadScroll";
+
 export default function Message(props) {
     const [name, setName] = useState({ str: "", count: 0, valid: false });
     const [tel, setTel] = useState({ str: "", count: 0, valid: false });
@@ -103,7 +105,7 @@ export default function Message(props) {
     function MessageDisplay(props) {
         return (
 
-            <div key={props.lang + "message"}>
+            <div style = {stylesScrollTop(props.params)} key={props.lang + "message"} className = "message-page">
                 <h2 className={getMessage[1] === 0 ? "noMessage" : "yesMessage"}>{getMessage[0]}</h2>
                 <div className="container " id="messagePages" onMouseMove={(e) => setMouse({ x: e.clientX, y: e.clientY })}>
                     <h2>{props.name}</h2>
@@ -167,7 +169,7 @@ export default function Message(props) {
     }
     return (
         <div>
-            {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+            {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
             <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             {
                 HOMEJSON.filter((f) => f.lang === props.match.params.lang).map((x) => x.message.map((m) => MessageDisplay({
@@ -180,9 +182,11 @@ export default function Message(props) {
                     theme: m.theme,
                     txt: m.txt,
                     themeHold: m.themeHold,
-                    button: m.button
+                    button: m.button,
+                    params:props
                 })))
             }
+            <Footer/>
         </div>
     )
 }

@@ -5,6 +5,8 @@ import { alias, headers } from "../action";
 import Menu from "../menu/Menu";
 import HeadPage from "../header/HeadPage";
 import Footer from "../footer/Footer";
+import HeadScroll from "../header/HeadScroll";
+
 export default function Pages(props) {
     const SELECTGETMENU = useSelector((state) => state.getMenu);
     const SELECARTICLES = useSelector((store) => store.getArticles);
@@ -14,7 +16,7 @@ export default function Pages(props) {
     return (
         <div>
 
-            {props.sY < props.scrollN ? <HeadPage tel={props.tel} /> : ""}
+            {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
             <Menu menu={SELECTGETMENU} url = {props.match.url} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             <div className="row mt-3">
                 <div className="col-1"></div>

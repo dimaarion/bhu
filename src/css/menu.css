@@ -115,7 +115,7 @@
     margin-top: 0px;
     width: 100%;
     height: 50px;
-    z-index: 8000;
+    z-index: 8000 !important;
 }
 .menumobile ul{
     width: 230px;
@@ -188,7 +188,7 @@
     margin-left: 20px;
     margin-top: 12px;
     position: absolute;
-    z-index: 15000;
+    z-index: 8500;
     cursor: pointer;
 }
 @media screen and (max-width: 1600px){
@@ -209,6 +209,18 @@
         position: absolute;
         margin-top: 30px;
     }
+} 
+@media screen and (max-width: 800px){
+    .container-menu{
+        margin-top: 80px;
+    }
+    .menumobileButton{
+        position: fixed !important;
+    }
+    .menumobile{
+        position: fixed !important; 
+    } 
+   
 } 
 @media screen and (max-width: 730px){
     .logoscroll{
@@ -241,6 +253,18 @@
 @media screen and (max-width:500px){
     .langscroll{
         position: fixed !important;
+        display: initial !important;
+        margin-top: 30px !important;
+    }
+} 
+@media screen and (max-width:470px){
+    .langscroll{
+        margin-left: -50px!important;
+    }
+} 
+@media screen and (max-width:400px){
+    .langscroll{
+        margin-left: -100px!important;
     }
 } 
 @media screen and (max-width:330px){

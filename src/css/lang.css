@@ -10,14 +10,14 @@
     min-width: 50px;
     color: #187751;
     transition: 0.5s;
-    
+    background-color: #fff;
     
 }
 .lang .fl:hover{
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(206, 209, 206);
 }
-.langActive{
-    background-color: rgb(243, 243, 243);
+.langActive a{
+    background-color: rgb(206, 209, 206);
 }
 .lang .row{
     display: inline-flex;
