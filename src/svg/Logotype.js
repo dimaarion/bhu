@@ -1,14 +1,12 @@
 import React from "react";
 export default function Logotype(props) {
-    let w = "130";
+    
     let h = "170";
     let vbox = "";
   if(props.scroll === true){
-    w = "50";
     h = "50";
     vbox = "0, 0 ,150,150";
   }else{
-    w = "130";
     h = "170";
     vbox = "0,0,150,150";
   }

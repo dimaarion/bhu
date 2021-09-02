@@ -14,6 +14,7 @@ import "./css/app.css"
 function App() {
   const [menu, setMenu] = useState([{}]);
   const [articles, setArticles] = useState([{}]);
+  // eslint-disable-next-line no-unused-vars
   const [artMenu, setArtMenu] = useState([{}]);
   const [icons, setIcons] = useState([{}]);
   const [tel, setTel] = useState("");

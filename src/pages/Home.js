@@ -1,6 +1,7 @@
+/* eslint-disable no-self-assign */
 import React, { useEffect, useState } from "react";
 import { get, urlMdRu, headers,stylesScrollTop } from "../action";
-import { useDispatch, useSelector } from "react-redux";
+import {useSelector } from "react-redux";
 import Article from "./Article";
 import HomDisplay from "./HomDisplay";
 import Menu from "../menu/Menu";
@@ -16,7 +17,7 @@ export default function Home(props) {
     
     useEffect(() => {
         let id = 1;
-        let len = "ru"
+        let len = "ru";
         if (props.location.pathname === "/") {
             id = 1;
             len = "ru";

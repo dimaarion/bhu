@@ -40,7 +40,6 @@ export function arrayCount(n) {
 export function urlMdRu(url = "") {
     if (url !== "") {
         let lang = url.split("/").filter((x) => x === "ru" || x === "md").map((x2) => x2);
-        let r = "ru";
         if (lang[0] === "md") {
             return "md";
         } else {

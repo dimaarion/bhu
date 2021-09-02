@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-duplicate-props */
+/* eslint-disable array-callback-return */
 import React, { useEffect, useState } from "react";
 import {  useSelector } from "react-redux";
 import {get,stylesScrollTop } from "../action";
@@ -38,6 +40,7 @@ export default function Message(props) {
                 my: mouse.y
             }
         });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [submit])
 
     function replases(e, preg, v) {

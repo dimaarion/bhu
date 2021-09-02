@@ -1,8 +1,9 @@
-import React, { useEffect, useState, createElement } from "react";
+/* eslint-disable array-callback-return */
+import React, { useEffect} from "react";
 import "../css/menu.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { urlMdRu, alias } from "../action";
+import { urlMdRu } from "../action";
 import HeadScroll from "../header/HeadScroll";
 import MenuMobile from "../mobile/MenuMobile";
 

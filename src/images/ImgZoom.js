@@ -14,7 +14,7 @@ export default function ImgZoom(props) {
             <div className = "col-sm-1 mt-2 close" style = {styles.close} onClick = {()=>props.setImgZoom({src:"",alt:""})}><Close size = {50}/></div>
             </div>
             <h2 className = "container" style = {styles.head}>{props.imgZoom.alt}</h2>
-          <img   src = {props.imgZoom.src}/>
+          <img   src = {props.imgZoom.src} alt = {props.imgZoom.alt}/>
         </div>
 
 

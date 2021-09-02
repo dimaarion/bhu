@@ -13,12 +13,30 @@
    height: 100%;
 }
 .img_zoom h2{
-   margin-top: -50px;
+   margin-top: 0px;
  }
 .img_zoom svg{
     font-size: 16pt;
+    position: absolute;
+    margin-top: 5px;
 }
 .img_zoom .close{
     
     cursor:pointer;
 }
+@media screen and (max-width:600px){
+    .img_zoom img{
+       height: auto;
+       width: 100%;
+    }
+    .img_zoom svg{
+        margin-top: 50px;
+        color: black;
+    }
+} 
+@media screen and (max-width:300px){
+    .img_zoom svg{
+        margin-top: 85px;
+        color: black;
+    }
+} 

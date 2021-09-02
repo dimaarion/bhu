@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../css/message.css";
 import {urlMdRu} from "../action";
-import Measure from "../svg/Measure";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function MessageButton(props) {
@@ -10,6 +9,7 @@ export default function MessageButton(props) {
     
     useEffect(()=>{
         setUrl(urlMdRu(document.baseURI))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[document.baseURI, urlMdRu,lang])
     return (
         <div className={props.scroll === true?"messagescrollbox":"col-sm justify-content-md-center  row"}>
