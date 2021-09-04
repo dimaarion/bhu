@@ -8,6 +8,6 @@ export default function Footer(props) {
     }
 
     return (
-        <div className = "footer mt-3"><div className = "date"> Copyright © sandani PRIM  2020 - {dates()} Все права защищены.</div></div>
+        <div className = "footer"><div className = "date"> Copyright © sandani PRIM  2020 - {dates()} Все права защищены.</div></div>
     )
 }

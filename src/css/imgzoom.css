@@ -21,17 +21,13 @@
     margin-top: 5px;
 }
 .img_zoom .close{
-    
+    height: 50px;
     cursor:pointer;
 }
 @media screen and (max-width:600px){
     .img_zoom img{
        height: auto;
        width: 100%;
-    }
-    .img_zoom svg{
-        margin-top: 50px;
-        color: black;
     }
 } 
 @media screen and (max-width:300px){
