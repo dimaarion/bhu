@@ -74,7 +74,7 @@ export default function Menu(props) {
     function cildRecursion(c) {
         if (isObj(c.child)) {
             // console.log(c.child);
-            return <ul className="navChild">{isObj(c.child) ? c.child.map((m2, i) => <li className={isurl(props.url,m2.alias,"list menu_li_active","list") } key={m2.alias + i}><Link to={`/${m2.alias}/${m2.lang}`}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
+            return <ul className="navChild">{isObj(c.child) ? c.child.map((m2, i) => <li className={isurl(props.url,m2.alias,"list menu_li_active","list") } key={m2.alias + i}><Link to={`/${m2.alias}`}>{m2.names}</Link>{cildRecursion(m2)}</li>) : ""}</ul>
         }
 
     }
@@ -96,7 +96,7 @@ export default function Menu(props) {
             <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : "menu"} >
                 <div className={props.resize === true ? containerFluid : "container"}>
                     <ul style={props.resize === true ? { display: "none" } : { display: "flex" }} className={props.resize === true ? "nav flex-column " : "nav justify-content-center"}>
-                        {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.lang === urlMdRu(document.baseURI)).map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/" || m.alias === "md" ? m.alias === "/" ? m.alias : "/" + m.alias : "/" + m.alias + `/${m.lang}`}>{m.names}</Link>
+                        {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.position === "0").map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/"?m.alias:"/" + m.alias}>{m.names}</Link>
                             {(isObj(m.child)) ? cildRecursion(m) : ""}
                         </li>)}
                     </ul>
