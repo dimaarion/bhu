@@ -24,15 +24,3 @@
     height: 50px;
     cursor:pointer;
 }
-@media screen and (max-width:600px){
-    .img_zoom img{
-       height: auto;
-       width: 100%;
-    }
-} 
-@media screen and (max-width:300px){
-    .img_zoom svg{
-        margin-top: 85px;
-        color: black;
-    }
-} 

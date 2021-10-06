@@ -7,7 +7,7 @@ import Pages from './pages/Pages';
 import Home from './pages/Home';
 import Message from './message/Message';
 import ImgZoom from './images/ImgZoom';
-import "./css/app.css"
+import "./css/mobil.css"
 
 
 

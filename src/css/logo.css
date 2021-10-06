@@ -16,6 +16,10 @@
     cursor: pointer;
     
 }
+.logo img{
+    max-width: 200px;
+    
+}
 .logoscroll{
     display: inline-block;
     position: absolute;
@@ -37,5 +41,8 @@
 }
 .logoText2, .logoText3{
     font-weight: bold;
+}
+.logoTextBox{
+    background-color: #f9f5e5;
 }
 

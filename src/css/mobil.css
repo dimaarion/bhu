@@ -1,0 +1,113 @@
+@media screen and (max-width: 1600px){
+    .telList{
+        font-size: 15pt;
+    } 
+   
+} 
+@media screen and (min-width: 1600px){
+    
+    .menumobileButton {
+        display: none;
+    }
+} 
+
+@media screen and (max-width: 1410px){
+    .headscrollBox{
+        height: 150px;
+    }
+    .scrollactiveMob{
+      
+        top: 150px !important;
+      
+    }
+    .scrollactiveMobButtton{
+       
+        top: 150px !important;
+    }
+} 
+@media screen and (max-width: 800px){
+    .container-menu{
+        margin-top: 250px;
+    }
+    .menumobileButton{
+        position: fixed !important;
+    }
+    .menumobile{
+        position: fixed !important; 
+    } 
+    .headscrollBox{
+        height: 250px;
+    }
+    .scrollactiveMob{
+      
+        top: 250px !important;
+      
+    }
+    .scrollactiveMobButtton{
+       
+        top: 250px !important;
+    }
+   
+} 
+@media screen and (max-width: 730px){
+    .logoscroll{
+       display: none !important;
+    }
+    
+    .telscroll{
+        font-size: 10pt !important;
+    }
+} 
+@media screen and (max-width: 570px){
+    .telList{
+        font-size: 20pt;
+      
+    } 
+    .logoTextBox{
+        text-align: center !important;
+    }
+    .message{
+        width: 90%;
+        margin-left: 39px;
+    }
+    .tel{
+        width: 100%; 
+        text-align: center;
+        padding: 0px 40px 0px 40px!important;
+    }
+} 
+@media screen and (max-width:500px){
+    .langscroll{
+        position: fixed !important;
+        display: initial !important;
+        margin-top: 32px !important;
+    }
+    .container-menu{
+        margin-top: 250px;
+    }
+} 
+@media screen and (max-width:470px){
+    .langscroll{
+        margin-left: -50px!important;
+    }
+} 
+@media screen and (max-width:400px){
+    .langscroll{
+        margin-left: -100px!important;
+    }
+} 
+@media screen and (max-width:330px){
+    
+} 
+@media screen and (max-width:600px){
+    .img_zoom img{
+       height: auto;
+       width: 100%;
+    }
+} 
+@media screen and (max-width:300px){
+    .img_zoom svg{
+        margin-top: 85px;
+        color: black;
+    }
+} 

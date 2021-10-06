@@ -16,7 +16,7 @@ export default function MessageButton(props) {
 
     return (
         <div className={props.scroll === true?"messagescrollbox":"col-4"}>
-            <div className={props.scroll === true?"messagescroll row":"message row"}>
+            <div className={props.scroll === true?"messagescroll col-sm row":"message row"}>
                <div className = "pr-2"><MessageIcon/></div>
                <div><Link to ={ "/connect/message"} >{NAMEMESSAGE}</Link></div> 
             </div>

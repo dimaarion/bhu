@@ -11,12 +11,12 @@ export default function HeadScroll(props) {
         <header className="headscrollBox ">
             <div className="headscroll row">
                 <div className="col-sm">
-                    <div className="col-sm row">
-                        <div className="col-sm-3"><img width="70px" src="/img/icon/log.png" alt="" /></div>
-                        <div className="col-sm text-left">{NAMESITE.split(",").map((x,i) => <div className = {"logoText" + (i + 1)}>{x}</div>)}</div>
+                    <div className="col-sm row" >
+                        <div className="col-sm-3 "><img width="70px" src="/img/icon/log.png" alt="" /></div>
+                        <div className="col-sm text-left ml-3 logoTextBox">{NAMESITE.split(",").map((x,i) => <div className = {"logoText" + (i + 1)}>{x}</div>)}</div>
                     </div>
                 </div>
-                <div className="col-sm row">
+                <div className="col-sm row ml-1">
                     <div className="col-sm text-right"><MessageButton scroll={props.scroll} /></div>
                     <div className="col-sm text-left">
                         <div className="teliconscroll"><TelScroll /></div>
