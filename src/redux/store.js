@@ -64,6 +64,22 @@ export function getHomeJson(state = [{}], action){
            return state;
     }
 }
+export function getNameMessage(state = "", action){
+    switch (action.type) {
+        case "NAMEMESSAGE":
+            return action.preload;
+        default:
+           return state;
+    }
+}
+export function getLogo(state = "", action){
+    switch (action.type) {
+        case "LOGO":
+            return action.preload;
+        default:
+           return state;
+    }
+}
 
 export default combineReducers(
     {
@@ -73,6 +89,8 @@ export default combineReducers(
         getMenuArt:getMenuArt,
         getArticles:getArticles,
         getIcons:getIcons,
-        getHomeJson:getHomeJson
+        getHomeJson:getHomeJson,
+        getNameMessage:getNameMessage,
+        getLogo:getLogo
     }
     )

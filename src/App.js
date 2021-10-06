@@ -18,10 +18,12 @@ function App() {
   const [artMenu, setArtMenu] = useState([{}]);
   const [icons, setIcons] = useState([{}]);
   const [tel, setTel] = useState("");
+  const [nameMessage, setNameMessage] = useState("");
   const [homeJson, setHomeJson] = useState([{}]);
   const [sY, setSY] = useState(0);
   const [sX, setSX] = useState(0);
   const [imgZoom, setImgZoom] = useState({src:"",alt:""});
+  const[nameSite, setNameSite] = useState("");
 
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
@@ -31,6 +33,8 @@ function App() {
   const GETARTICLES = useDispatch();
   const GETICONS = useDispatch();
   const HOMEJSON = useDispatch();
+  const NAMEMESSAGE = useDispatch();
+  const LOGO = useDispatch();
   useEffect(() => {
     get(setMenu, "menu.php");
     get(setTel, "tel.php");
@@ -39,6 +43,8 @@ function App() {
     get(setHomeJson, "home.php");
     scrollActive(setSY);
     resizeActive(setSX);
+    get(setNameMessage,"messagename.php");
+    get(setNameSite,"nameSite.php");
   }, [])
 
   imagesZoom(setImgZoom); 
@@ -63,6 +69,14 @@ function App() {
     HOMEJSON({type:"HOMEJSON", preload:homeJson});
   },[homeJson,HOMEJSON])
 
+  useEffect(()=>{
+    NAMEMESSAGE({type:"NAMEMESSAGE", preload:nameMessage});
+  },[nameMessage,NAMEMESSAGE])
+
+  useEffect(()=>{
+    LOGO({type:"LOGO", preload:nameSite});
+  },[nameSite,LOGO])
+
   let windowWidth = true; 
   let scrolls = true;
   let scrollN = 125;
@@ -86,7 +100,7 @@ function App() {
          <Route exact path={"/md"}render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias + "/:lang"} render = {(params) =><ArticlesAll {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias + "/" + x.art_lang} render = {(params) =><Pages {... params} sY = {sY} scrollN = {scrollN} menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
-         <Route exact  path = "/connect/message/:lang" render = {(params) =><Message {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
+         <Route exact  path = "/connect/message" render = {(params) =><Message {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
       </Switch>
     
     </div>
