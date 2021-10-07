@@ -10,7 +10,7 @@ export default function MenuMobile(props) {
             menu.setAttribute("style", "display:none;");
             f({ r: "noActiveRect", b: "noActive" });
         }
-      
+
 
     }
     let scrollactiveMob = "";
@@ -19,7 +19,11 @@ export default function MenuMobile(props) {
     }else{
         scrollactiveMob = "";
     }
-    return (
+    switch (props.type) {
+    case "LEFT":
+
+    default:
+     return (
         <div className={"menumobileButton " + aktive.b + scrollactiveMob} onClick={(e) => menuMobileDisplay(e, setAktive)}>
             <div className={"rect " + aktive.r}></div>
             <div className={"rect " + aktive.r}></div>
@@ -27,4 +31,6 @@ export default function MenuMobile(props) {
         </div>
 
     )
+}
+
 }

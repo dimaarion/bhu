@@ -13,9 +13,7 @@ export default function Menu(props) {
         childRemove(document);
         affterIconDisplay(document);
     }, [props])
-    useEffect(() => {
 
-    }, [])
 
     const SELECTGETMENU = useSelector((state) => state.getMenu);
 
