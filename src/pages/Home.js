@@ -14,7 +14,7 @@ export default function Home(props) {
     const JSONHOME = useSelector((state) => state.getHomeJson);
     const [home, setHome] = useState({});
 
-    
+
     useEffect(() => {
         let id = 1;
         let len = "ru";
@@ -48,19 +48,20 @@ export default function Home(props) {
         headers({ hom: SELECTGETMENU, location: props.location.pathname })
     }, [SELECTGETMENU, props.location.pathname])
 
-    
+
     return (
         <div>
-
             {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
-            <Menu menu={SELECTGETMENU} url = {props.match.url} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
-            <div style = {stylesScrollTop(props)}>{Object.values(home).map((x) => <HomDisplay key={x.id + "hom"} content={x} />)}</div>
-            <div className="row mt-3">
-                <div className="col-1"></div>
-                <div className="col-10 ">
-                    {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} lang={art.art_lang} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
+            <Menu menu={SELECTGETMENU} url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+            <div className="mt-3 col-sm">
+                <div className = "row">
+                        <div className="col-2">
+                            <Menu menu={SELECTGETMENU} nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                        </div>
+                        <div className="col-sm">
+                            {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
+                        </div>
                 </div>
-                <div className="col-1"></div>
             </div>
             <Footer/>
         </div>

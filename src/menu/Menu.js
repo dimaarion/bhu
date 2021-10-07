@@ -1,6 +1,7 @@
 /* eslint-disable array-callback-return */
 import React, { useEffect} from "react";
 import "../css/menu.css";
+import "../css/menutop.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { urlMdRu } from "../action";
@@ -80,23 +81,33 @@ export default function Menu(props) {
     }
 
 
-    let menuScrolls = "menu scrollactive";
-    let scrollactiveMob = "menumobile scrollactiveMob";
-    let menuMobile = "menumobile ";
-    let containerFluid = "container-fluid";
-    let menuActive = "nav-link text-center menu_active";
-    let menuNoActive = "nav-link text-center"
+    let menuScrolls = props.menuScrolls?props.menuScrolls:"menu scrollactive";
+    let scrollactiveMob = props.scrollactiveMob?props.scrollactiveMob:"menumobile scrollactiveMob";
+    let menuMobile = props.menuMobile?props.menuMobile:"menumobile";
+    let containerMob = props.containerMob?props.containerMob:"container-fluid";
+    let containerComp = props.containerComp?props.containerComp:"container";
+    let menuActive =  props.menuActive?props.menuActive:"nav-link text-center menu_active";
+    let menuNoActive = props.menuNoActive?props.menuNoActive:"nav-link text-center";
+    let resizeNavMob = props.resizeNavMob?props.resizeNavMob:"nav flex-column ";
+    let resizeNavComp = props.resizeNavComp?props.resizeNavComp:"nav justify-content-center";
+    let menu = props.menuComp?props.menuComp:"menu";
+    let displayMob = props.displayMob?props.displayMob:"none";
+    let displayComp = props.displayComp?props.displayComp:"flex";
+    let position = props.position?props.position:"0";
+    let nav = props.nav?props.nav:"container-menu";
+
+
     function isurl(a, b, active, noActive) {
       return  a === b ? active : a === "/" + b ? active : a === "/" + b + "/ru" || a === "/" + b + "/md" ? active : noActive;
     }
     return (
-        <nav className = "container-menu">
+        <nav className = {nav}>
             {props.resize === true ? <MenuMobile scroll={props.scroll} /> : ""}
-            
-            <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : "menu"} >
-                <div className={props.resize === true ? containerFluid : "container"}>
-                    <ul style={props.resize === true ? { display: "none" } : { display: "flex" }} className={props.resize === true ? "nav flex-column " : "nav justify-content-center"}>
-                        {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.position === "0").map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/"?m.alias:"/" + m.alias}>{m.names}</Link>
+
+            <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : menu} >
+                <div className={props.resize === true ? containerMob : containerComp}>
+                    <ul style={props.resize === true ? { display: displayMob } : { display: displayComp }} className={props.resize === true ? resizeNavMob : resizeNavComp}>
+                        {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.position === position).map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/"?m.alias:"/" + m.alias}>{m.names}</Link>
                             {(isObj(m.child)) ? cildRecursion(m) : ""}
                         </li>)}
                     </ul>

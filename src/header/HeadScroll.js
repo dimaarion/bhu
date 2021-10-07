@@ -4,8 +4,10 @@ import { strArr } from "../action";
 import "../css/headscroll.css"
 import TelScroll from "../svg/TelScroll";
 import { useSelector } from "react-redux";
+import Menu from "../menu/Menu";
 export default function HeadScroll(props) {
     const NAMESITE = useSelector((state) => state.getLogo);
+    const SELECTGETMENU = useSelector((state) => state.getMenu);
     return (
 
         <header className="headscrollBox ">
@@ -26,6 +28,7 @@ export default function HeadScroll(props) {
 
 
             </div>
+                <Menu menu={SELECTGETMENU} url = {"/"} nav = "container-menuTop scroll" menuComp = "menuTop" position = "1" menuScrolls = "scrollMenuTop" lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
 
         </header>
 

@@ -47,7 +47,7 @@ function App() {
     get(setNameSite,"nameSite.php");
   }, [])
 
-  imagesZoom(setImgZoom); 
+  imagesZoom(setImgZoom);
 
   useEffect(() => {
     GETMENU({ type: "GETMENU", preload: menu });
@@ -77,7 +77,7 @@ function App() {
     LOGO({type:"LOGO", preload:nameSite});
   },[nameSite,LOGO])
 
-  let windowWidth = true; 
+  let windowWidth = true;
   let scrolls = true;
   let scrollN = 125;
   let winSize = 1600;
@@ -97,12 +97,11 @@ function App() {
       {imgZoom.src !== ""?<ImgZoom imgZoom = {imgZoom} setImgZoom = {setImgZoom} />:""}
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
-         <Route exact path={"/md"}render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias} render = {(params) =><ArticlesAll {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias} render = {(params) =><Pages {... params} sY = {sY} scrollN = {scrollN} menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          <Route exact  path = "/connect/message" render = {(params) =><Message {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
       </Switch>
-    
+
     </div>
 
   );
