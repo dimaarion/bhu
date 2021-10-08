@@ -55,8 +55,8 @@ export default function Home(props) {
             <Menu menu={SELECTGETMENU} url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             <div className="mt-3 col-sm">
                 <div className = "row">
-                        <div className="col-2">
-                            <Menu menu={SELECTGETMENU} nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                        <div className={props.sY < props.scrollN && props.sX > 1600 ?"col-2":"none"}>
+                            <Menu menu={SELECTGETMENU} menuMobile = "mobileLeft" scrollactiveMob = "mobileLeft scrollactiveMobLeft" type = "LEFT" nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
                         </div>
                         <div className="col-sm">
                             {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}

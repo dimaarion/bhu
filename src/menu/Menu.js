@@ -1,7 +1,8 @@
 /* eslint-disable array-callback-return */
-import React, { useEffect} from "react";
+import React, { useEffect, useState} from "react";
 import "../css/menu.css";
 import "../css/menutop.css";
+import "../css/menuleft.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { urlMdRu } from "../action";
@@ -9,6 +10,9 @@ import HeadScroll from "../header/HeadScroll";
 import MenuMobile from "../mobile/MenuMobile";
 
 export default function Menu(props) {
+
+    const [display, setDisplay] = useState("none");
+
     useEffect(() => {
         childRemove(document);
         affterIconDisplay(document);
@@ -99,20 +103,20 @@ export default function Menu(props) {
       return  a === b ? active : a === "/" + b ? active : a === "/" + b + "/ru" || a === "/" + b + "/md" ? active : noActive;
     }
     return (
-        <nav className = {nav}>
-            {props.resize === true ? <MenuMobile scroll={props.scroll} /> : ""}
+        <div>
 
-            <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : menu} >
-                <div className={props.resize === true ? containerMob : containerComp}>
-                    <ul style={props.resize === true ? { display: displayMob } : { display: displayComp }} className={props.resize === true ? resizeNavMob : resizeNavComp}>
-                        {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.position === position).map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/"?m.alias:"/" + m.alias}>{m.names}</Link>
-                            {(isObj(m.child)) ? cildRecursion(m) : ""}
-                        </li>)}
-                    </ul>
-
+            <nav className = {nav}>
+                {props.resize === true ? <MenuMobile selector = {menuMobile} type = {props.type} scroll={props.scroll} /> : ""}
+                <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : menu} >
+                    <div className={props.resize === true ? containerMob : containerComp}>
+                        <ul style={props.resize === true ? { display: displayMob } : { display: displayComp }} className={props.resize === true ? resizeNavMob : resizeNavComp}>
+                            {cildMenu({ menu: SELECTGETMENU }).filter((f) => f.position === position).map((m, i) => <li className={isurl(props.url,m.alias,menuActive,menuNoActive)} key={m.names + i}><Link to={m.alias === "/"?m.alias:"/" + m.alias}>{m.names}</Link>
+                                {(isObj(m.child)) ? cildRecursion(m) : ""}
+                            </li>)}
+                        </ul>
+                    </div>
                 </div>
-
-            </div>
-        </nav>
+            </nav>
+        </div>
     )
 }

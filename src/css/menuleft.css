@@ -1,0 +1,25 @@
+.scrollactiveMobLeft{
+	margin-top: 200px;
+}
+.mobileLeft{
+	position: fixed;
+	z-index: 10000;
+
+}
+.menuLeft-active{
+   margin-left:250px;
+}
+.menu-left-btn{
+	position: fixed;
+	cursor: pointer;
+    z-index: 10000;
+}
+.scroll-active-mob-button-left{
+	margin-top: 200px
+}
+.menu-left-btn .arrow{
+font-size: 50pt;
+width: 20px;
+background-color: blue;
+color: #ffffff;
+}
