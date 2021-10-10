@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import ArticlesAll from './pages/ArticlesAll';
-import { get,scrollActive,resizeActive,imagesZoom } from "./action";
+import { get,scrollActive,resizeActive } from "./action";
 import { useDispatch, useSelector } from 'react-redux';
 import Pages from './pages/Pages';
 import Home from './pages/Home';
 import Message from './message/Message';
-import ImgZoom from './images/ImgZoom';
-import "./css/mobil.css"
 
+import "./css/mobil.css"
+import "./css/app.css"
 
 
 function App() {
@@ -22,8 +22,8 @@ function App() {
   const [homeJson, setHomeJson] = useState([{}]);
   const [sY, setSY] = useState(0);
   const [sX, setSX] = useState(0);
-  const [imgZoom, setImgZoom] = useState({src:"",alt:""});
   const[nameSite, setNameSite] = useState("");
+  const[limit, setLimit] = useState("");
 
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
@@ -35,6 +35,7 @@ function App() {
   const HOMEJSON = useDispatch();
   const NAMEMESSAGE = useDispatch();
   const LOGO = useDispatch();
+  const LIMIT = useDispatch();
   useEffect(() => {
     get(setMenu, "menu.php");
     get(setTel, "tel.php");
@@ -45,37 +46,42 @@ function App() {
     resizeActive(setSX);
     get(setNameMessage,"messagename.php");
     get(setNameSite,"nameSite.php");
+    get(setLimit,"limit.php");
   }, [])
 
-  imagesZoom(setImgZoom);
+  
 
   useEffect(() => {
     GETMENU({ type: "GETMENU", preload: menu });
-  }, [menu,GETMENU])
+  }, [menu,GETMENU]);
 
   useEffect(() => {
     GETMENUART({ type: "GETMENUART", preload: artMenu });
-  }, [artMenu,GETMENUART])
+  }, [artMenu,GETMENUART]);
 
   useEffect(() => {
     GETARTICLES({ type: "GETARTICLES", preload: articles });
-  }, [articles,GETARTICLES])
+  }, [articles,GETARTICLES]);
 
   useEffect(()=>{
     GETICONS({type:"GETICONS", preload:icons});
-  },[icons,GETICONS])
+  },[icons,GETICONS]);
 
   useEffect(()=>{
     HOMEJSON({type:"HOMEJSON", preload:homeJson});
-  },[homeJson,HOMEJSON])
+  },[homeJson,HOMEJSON]);
 
   useEffect(()=>{
     NAMEMESSAGE({type:"NAMEMESSAGE", preload:nameMessage});
-  },[nameMessage,NAMEMESSAGE])
+  },[nameMessage,NAMEMESSAGE]);
 
   useEffect(()=>{
     LOGO({type:"LOGO", preload:nameSite});
-  },[nameSite,LOGO])
+  },[nameSite,LOGO]);
+
+  useEffect(()=>{
+    LIMIT({type:"LIMIT", preload:limit});
+  },[limit,LIMIT]);
 
   let windowWidth = true;
   let scrolls = true;
@@ -94,7 +100,7 @@ function App() {
   }
   return (
     <div className="container-fluid text-center p-0">
-      {imgZoom.src !== ""?<ImgZoom imgZoom = {imgZoom} setImgZoom = {setImgZoom} />:""}
+      
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias} render = {(params) =><ArticlesAll {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}

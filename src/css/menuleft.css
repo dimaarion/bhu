@@ -18,8 +18,35 @@
 	margin-top: 200px
 }
 .menu-left-btn .arrow{
-font-size: 50pt;
-width: 20px;
-background-color: blue;
-color: #ffffff;
+	font-size: 50pt;
+	width: 20px;
+	background-color: blue;
+	color: #ffffff;
+}
+.scrollactive-menu-left{
+	margin-top: 150px !important;
+    position: fixed;
+    width: 14.5%;
+}
+.menu-left{
+	background-color: #ffffff;
+	margin-top: 10px;
+	padding-bottom: 8px;
+}
+.menu-left ul li{
+    height: 30px;
+	text-align: left !important;
+	list-style: none;
+    text-align: left;
+    margin-left: -20px;
+}
+
+.menu-left ul li a{
+	text-decoration: none;
+	display: block;
+	font-size: 13pt;
+	color: #2282D6;
+}
+.menu-left ul li a:hover{
+	color: #dfb81c;
 }

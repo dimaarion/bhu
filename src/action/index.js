@@ -1,8 +1,8 @@
 import axios from 'axios'
 
- let inital_base_url = 'http://localhost';
+ let inital_base_url = 'http://adminpanel';
 if (window.location.hostname === "localhost") {
-    inital_base_url = 'http://localhost';
+    inital_base_url = 'http://adminpanel';
 }else{
    inital_base_url = window.location.protocol + "//" + window.location.hostname;
    }
@@ -124,4 +124,12 @@ export function stylesScrollTop(props) {
         }
     }
     return props.sY < props.scrollN?props.sX < 800?styles.scrollSize:styles.noScroll:props.sX < 800?styles.scrollSize:styles.scroll;
+}
+
+export function replaceClass(selector1 = "", selector2 = "",is = false) {
+    if(is === true){
+        return selector1;
+    }else{
+        return selector2;
+    }
 }

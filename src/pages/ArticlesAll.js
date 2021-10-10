@@ -11,7 +11,7 @@ export default function ArticlesAll(props) {
   const [artMenu, setArtMenu] = useState([{}]);
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   useEffect(() => {
-    let id = SELECTGETMENU.filter((f) => f.alias !== "ru" && f.alias !== "md" && f.alias === alias(props.location.pathname, f.alias)).map((x) => x.menu_id);
+    let id = SELECTGETMENU.filter((f) =>f.alias === alias(props.location.pathname, f.alias)).map((x) => x.menu_id);
     let idArt = 1
     if (id.length !== 0) {
       idArt = id;
@@ -20,7 +20,6 @@ export default function ArticlesAll(props) {
       params: {
         id: 1,
         menu_id: idArt[0],
-        lang: props.match.params.lang
       }
 
     });
@@ -34,18 +33,20 @@ export default function ArticlesAll(props) {
 
   return (
     <div>
-
-      {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
-      <Menu menu={SELECTGETMENU} lang={props.lang} url = {props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
-      <div style = {stylesScrollTop(props)} className="row mt-3">
-        <div className="col-1"></div>
-        <div className="col-10 ">
-          {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} lang={art.art_lang} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
+    {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
+    <Menu menu={SELECTGETMENU} url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+    <div className="mt-3 col-sm">
+        <div className = "row col-sm">
+                <div className={props.sX > 1600 ?"col-2 mr-3":"none"}>
+                    <Menu menu={SELECTGETMENU} position = "2" menuMobile = "mobileLeft" scrollactiveMob = "mobileLeft scrollactiveMobLeft" type = "LEFT" nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuScrolls = "menu-left scrollactive-menu-left" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                </div>
+                <div className="justify-content-md-center col-sm row mt-2 art-box">
+                    {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
+                </div>
         </div>
-        <div className="col-1"></div>
-      </div>
-      <Footer />
     </div>
+    <Footer/>
+</div>
 
   )
 }

@@ -80,6 +80,14 @@ export function getLogo(state = "", action){
            return state;
     }
 }
+export function getLimit(state = 3, action){
+    switch (action.type) {
+        case "LIMIT":
+            return action.preload;
+        default:
+           return state;
+    }
+}
 
 export default combineReducers(
     {
@@ -91,6 +99,7 @@ export default combineReducers(
         getIcons:getIcons,
         getHomeJson:getHomeJson,
         getNameMessage:getNameMessage,
-        getLogo:getLogo
+        getLogo:getLogo,
+        getLimit:getLimit
     }
     )

@@ -1,4 +1,31 @@
+.article{
+    background-color: #fff;
+ 
+}
+
 .article .content{
     text-align: justify;
     font-size: 13pt;
+   
 }
+.image-prim-parent{
+    overflow: hidden;
+    cursor: pointer;
+    height: 200px;
+    margin-top: 15px;
+}
+a .image-prim  {
+    transition: 0.5s;
+  
+}
+a :hover > .image-prim {
+    margin-top: -7.5%;
+    margin-left: -7.5%;
+    width: 110%;
+  
+ }
+
+ .art-box{
+     background-color: #ffffff;
+ }
+ 
