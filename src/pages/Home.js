@@ -11,6 +11,7 @@ import HeadScroll from "../header/HeadScroll";
 import Pagination from "../footer/Pagination";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
+    const [artMenuCount, setArtMenuCount] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
     const JSONHOME = useSelector((state) => state.getHomeJson);
     const [countPagination, setCountPagination] = useState(1);
@@ -33,6 +34,7 @@ export default function Home(props) {
             }
 
         });
+        
 
     }, [props.location.pathname,countPagination])
     

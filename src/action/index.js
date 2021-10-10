@@ -29,9 +29,10 @@ export function setConnect(f, namef, params = {}) {
 
 
 
-export function arrayCount(n) {
+export function arrayCount(c = 0,n) {
     let a = [];
-    for (let i = 0; i < n; i++) {
+    
+    for (let i = c; i < n; i++) {
         a[i] = i;
     }
     return a;

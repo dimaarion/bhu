@@ -6,9 +6,10 @@ import HeadPage from "../header/HeadPage";
 import Menu from "../menu/Menu";
 import Article from "./Article";
 import HeadScroll from "../header/HeadScroll";
-
+import Pagination from "../footer/Pagination";
 export default function ArticlesAll(props) {
   const [artMenu, setArtMenu] = useState([{}]);
+  const [countPagination, setCountPagination] = useState(1);
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   useEffect(() => {
     let id = SELECTGETMENU.filter((f) =>f.alias === alias(props.location.pathname, f.alias)).map((x) => x.menu_id);
@@ -18,14 +19,14 @@ export default function ArticlesAll(props) {
     }
     get(setArtMenu, "artMenu.php", {
       params: {
-        id: 1,
+        id: countPagination,
         menu_id: idArt[0],
       }
 
     });
 
 
-  }, [SELECTGETMENU, props.location.pathname, props.match.params])
+  }, [SELECTGETMENU, props.location.pathname, props.match.params,countPagination])
 
   useEffect(() => {
     headers({ menu: SELECTGETMENU, location: props.location.pathname })
@@ -45,6 +46,7 @@ export default function ArticlesAll(props) {
                 </div>
         </div>
     </div>
+    <Pagination countArt={artMenu.length} setCountPagination = {setCountPagination} countPagination = {countPagination} />
     <Footer/>
 </div>
 

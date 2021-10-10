@@ -1,0 +1,15 @@
+.pagination span{
+    cursor: pointer;
+}
+.no-aktive:hover  {
+    background-color: #2282D6 !important;
+    color: #fff;
+}
+.e-aktive:hover  {
+    background-color: #2282D6 !important;
+    color: #fff;
+}
+.e-aktive{
+    background-color: #2282D6;
+    color: #fff;
+}
