@@ -46,7 +46,12 @@ function App() {
     resizeActive(setSX);
     get(setNameMessage,"messagename.php");
     get(setNameSite,"nameSite.php");
-    get(setLimit,"limit.php");
+    get(setLimit,"limit.php", {
+      params: {
+          menu_id: 1
+      }
+
+  });
   }, [])
 
   
