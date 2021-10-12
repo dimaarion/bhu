@@ -7,9 +7,9 @@ import Pages from './pages/Pages';
 import Home from './pages/Home';
 import Message from './message/Message';
 
-import "./css/mobil.css"
-import "./css/app.css"
 
+import "./css/app.css"
+import "./css/mobil.css"
 
 function App() {
   const [menu, setMenu] = useState([{}]);
@@ -25,6 +25,7 @@ function App() {
   const[nameSite, setNameSite] = useState("");
   const[limit, setLimit] = useState("");
 
+
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   const lang = useSelector((store) => store.lang);
   const SELECARTICLES = useSelector((store) => store.getArticles);
@@ -35,7 +36,7 @@ function App() {
   const HOMEJSON = useDispatch();
   const NAMEMESSAGE = useDispatch();
   const LOGO = useDispatch();
-  const LIMIT = useDispatch();
+
   useEffect(() => {
     get(setMenu, "menu.php");
     get(setTel, "tel.php");
@@ -46,15 +47,10 @@ function App() {
     resizeActive(setSX);
     get(setNameMessage,"messagename.php");
     get(setNameSite,"nameSite.php");
-    get(setLimit,"limit.php", {
-      params: {
-          menu_id: 1
-      }
 
-  });
   }, [])
 
-  
+
 
   useEffect(() => {
     GETMENU({ type: "GETMENU", preload: menu });
@@ -84,9 +80,7 @@ function App() {
     LOGO({type:"LOGO", preload:nameSite});
   },[nameSite,LOGO]);
 
-  useEffect(()=>{
-    LIMIT({type:"LIMIT", preload:limit});
-  },[limit,LIMIT]);
+
 
   let windowWidth = true;
   let scrolls = true;
@@ -105,7 +99,7 @@ function App() {
   }
   return (
     <div className="container-fluid text-center p-0">
-      
+
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias} render = {(params) =><ArticlesAll {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}

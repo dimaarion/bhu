@@ -15,7 +15,7 @@ export default function HeadScroll(props) {
                 <div className="col-sm">
                     <div className="col-sm row" >
                         <div className="col-sm-3 "><img width="70px" src="/img/icon/log.png" alt="" /></div>
-                        <div className="col-sm text-left ml-3 logoTextBox">{NAMESITE.split(",").map((x,i) => <div className = {"logoText" + (i + 1)}>{x}</div>)}</div>
+                        <div className="col-sm text-left ml-3 logoTextBox">{NAMESITE.split(",").map((x,i) => <div key = {i + "logo"} className = {"logoText" + (i + 1)}>{x}</div>)}</div>
                     </div>
                 </div>
                 <div className="col-sm row ml-1">

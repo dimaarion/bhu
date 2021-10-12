@@ -10,6 +10,7 @@ import Pagination from "../footer/Pagination";
 export default function ArticlesAll(props) {
   const [artMenu, setArtMenu] = useState([{}]);
   const [countPagination, setCountPagination] = useState(1);
+   const [limit, setLimit] = useState(1);
   const SELECTGETMENU = useSelector((state) => state.getMenu);
   useEffect(() => {
     let id = SELECTGETMENU.filter((f) =>f.alias === alias(props.location.pathname, f.alias)).map((x) => x.menu_id);
@@ -24,7 +25,11 @@ export default function ArticlesAll(props) {
       }
 
     });
-
+     get(setLimit,"limit.php", {
+      params: {
+          menu_id: idArt[0]
+      }
+});
 
   }, [SELECTGETMENU, props.location.pathname, props.match.params,countPagination])
 
@@ -46,7 +51,7 @@ export default function ArticlesAll(props) {
                 </div>
         </div>
     </div>
-    <Pagination countArt={artMenu.length} setCountPagination = {setCountPagination} countPagination = {countPagination} />
+    <Pagination limit={limit} setCountPagination = {setCountPagination} countPagination = {countPagination} />
     <Footer/>
 </div>
 

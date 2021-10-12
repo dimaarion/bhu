@@ -9,6 +9,13 @@
     .menumobileButton {
         display: none;
     }
+    .menumobile ul li ul{
+        display: block !important;
+    }
+     .menumobile ul{
+        display: block !important;
+    }
+
 }
 
 @media screen and (max-width: 1410px){
@@ -21,14 +28,17 @@
 
     }
     .scrollactiveMobButtton{
-
         top: 150px !important;
     }
     .container-menuTop{
         margin-top: 0px;
     }
+    .scrollactivemobbuttonleft{
+         top: 165px !important;
+    }
 }
 @media screen and (max-width: 800px){
+
     .container-menu{
         margin-top: 290px;
     }
@@ -42,17 +52,24 @@
         height: 280px;
     }
     .scrollactiveMob{
-
-        top: 280px !important;
-
-    }
-    .scrollactiveMobButtton{
-
         top: 280px !important;
     }
-.container-menuTop{
+
+    .container-menuTop{
         margin-top: 120px;
     }
+
+    .scrollactiveMobButtton{
+        top: 280px !important;
+    }
+    .scrollactivemobbuttonleft{
+         top: 295px !important;
+    }
+    .menu-left-btn{
+        top: 305px ;
+        position: fixed;
+    }
+
 }
 @media screen and (max-width: 730px){
     .logoscroll{
@@ -95,6 +112,12 @@
     .container-menuTop{
         margin-top: 155px;
     }
+
+    .scrollactivemobbuttonleft{
+         position: fixed !important;
+         top: 295px !important;
+    }
+
 }
 @media screen and (max-width:500px){
     .langscroll{
@@ -104,6 +127,10 @@
     }
     .container-menu{
         margin-top: 280px;
+    }
+     .menu-left-btn{
+        top: 295px !important;
+
     }
 }
 @media screen and (max-width:470px){

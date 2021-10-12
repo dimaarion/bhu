@@ -1,6 +1,11 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 export default function MenuMobile(props) {
     const [aktive, setAktive] = useState({ r: "noActiveRect", b: "noActive" });
+    const [width, setWidth] = useState({ r: "noActiveRect", b: "noActive" });
+
+
+
+
     function menuMobileDisplay(e, f) {
         let selector = props.selector ? props.selector : "menumobile";
         let menu = document.querySelector("." + selector + " ul");
@@ -16,17 +21,20 @@ export default function MenuMobile(props) {
     }
     let scrollactiveMobLeft = "";
     let scrollactiveMob = "";
+    let heightBtnLeft = "80px";
     if (props.scroll) {
         scrollactiveMob = " scrollactiveMobButtton";
-        scrollactiveMobLeft = " scroll-active-mob-button-left"
+        scrollactiveMobLeft = " scrollactivemobbuttonleft"
     } else {
         scrollactiveMob = "";
         scrollactiveMobLeft = "";
     }
+
+
     switch (props.type) {
         case "LEFT":
             return (
-                <div className={"menu-left-btn  menuLeft-" + aktive.b + scrollactiveMobLeft} onClick={(e) => menuMobileDisplay(e, setAktive)}>
+                <div className={"menu-left-btn " + aktive.b +  scrollactiveMobLeft}  onClick={(e) => menuMobileDisplay(e, setAktive)}>
                     <div className={"rect " + aktive.r}></div>
                     <div className={"rect " + aktive.r}></div>
                 </div>);

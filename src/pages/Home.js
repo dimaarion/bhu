@@ -11,11 +11,12 @@ import HeadScroll from "../header/HeadScroll";
 import Pagination from "../footer/Pagination";
 export default function Home(props) {
     const [artMenu, setArtMenu] = useState([{}]);
+    const [limit, setLimit] = useState(1);
     const [artMenuCount, setArtMenuCount] = useState([{}]);
     const SELECTGETMENU = useSelector((state) => state.getMenu);
     const JSONHOME = useSelector((state) => state.getHomeJson);
     const [countPagination, setCountPagination] = useState(1);
-    
+
 
     useEffect(() => {
         let id = 1;
@@ -34,10 +35,15 @@ export default function Home(props) {
             }
 
         });
-        
+         get(setLimit,"limit.php", {
+      params: {
+          menu_id: id
+      }
+
+  });
 
     }, [props.location.pathname,countPagination])
-    
+
     useEffect(() => {
         headers({ hom: SELECTGETMENU, location: props.location.pathname })
     }, [SELECTGETMENU, props.location.pathname])
@@ -50,14 +56,14 @@ export default function Home(props) {
             <div className="mt-3 col-sm">
                 <div className = "row col-sm">
                         <div className={props.sX > 1600 ?"col-2 mr-3":"none"}>
-                            <Menu menu={SELECTGETMENU} position = "2" menuMobile = "mobileLeft" scrollactiveMob = "mobileLeft scrollactiveMobLeft" type = "LEFT" nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuScrolls = "menu-left scrollactive-menu-left" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                            <Menu menu={SELECTGETMENU} position = "2" menuMobile = "mobileLeft" scrollactiveMob = "mobileLeft scrollactiveMobLeft" type = "LEFT" nav = "container-menu-left" resizeNavComp = "flex-sm-column" menuScrolls = "scrollactive-menu-left" menuComp = "menu-left" url = {props.match.url}  scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
                         </div>
                         <div className="justify-content-md-center col-sm row art-box mt-2" >
                             {artMenu.map((art, i) => <Article key={art.art_names + i} name={art.art_names} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} countArt={artMenu.length} />)}
                         </div>
                 </div>
             </div>
-            <Pagination countArt={artMenu.length} setCountPagination = {setCountPagination} countPagination = {countPagination}/>
+            <Pagination limit={limit} setCountPagination = {setCountPagination} countPagination = {countPagination}/>
             <Footer/>
         </div>
 

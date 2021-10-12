@@ -1,8 +1,8 @@
 import axios from 'axios'
 
- let inital_base_url = 'http://adminpanel';
+ let inital_base_url = 'http://localhost';
 if (window.location.hostname === "localhost") {
-    inital_base_url = 'http://adminpanel';
+    inital_base_url = 'http://localhost';
 }else{
    inital_base_url = window.location.protocol + "//" + window.location.hostname;
    }
@@ -31,7 +31,7 @@ export function setConnect(f, namef, params = {}) {
 
 export function arrayCount(c = 0,n) {
     let a = [];
-    
+
     for (let i = c; i < n; i++) {
         a[i] = i;
     }
