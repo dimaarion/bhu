@@ -2,7 +2,9 @@
     .telList{
         font-size: 15pt;
     }
-
+    .logo h5,h1{
+        margin-left: 0px;
+    }
 }
 @media screen and (min-width: 1600px){
 
@@ -15,9 +17,16 @@
      .menumobile ul{
         display: block !important;
     }
-
+    .scrollactiveMobLeft{
+        margin-top: 200px !important;
+    }
 }
+@media screen and (max-width: 1570px){
 
+    .art-box {
+        margin-top: 0px;
+    }
+}
 @media screen and (max-width: 1410px){
     .headscrollBox{
         height: 150px;
@@ -36,9 +45,25 @@
     .scrollactivemobbuttonleft{
          top: 165px !important;
     }
+    .scrollactiveMobLeft{
+        margin-top: 199px !important;
+    }
+}
+@media screen and (max-width: 1200px){
+    .logo h5{
+        font-size: 10pt;
+    }
+    .logo h1{
+        font-size: 16pt;
+    }
+    .logo h5,h1{
+        margin-left: 40px;
+    }
 }
 @media screen and (max-width: 800px){
-
+    .art-box {
+        margin-top: 60px;
+    }
     .container-menu{
         margin-top: 290px;
     }
@@ -69,7 +94,12 @@
         top: 305px ;
         position: fixed;
     }
-
+    .mobileLeft{
+        margin-top: 65px !important;
+    }
+    .scrollactiveMobLeft{
+        margin-top: 65px !important;
+    }
 }
 @media screen and (max-width: 730px){
     .logoscroll{

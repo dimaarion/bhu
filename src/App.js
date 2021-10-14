@@ -47,7 +47,7 @@ function App() {
     resizeActive(setSX);
     get(setNameMessage,"messagename.php");
     get(setNameSite,"nameSite.php");
-
+     console.log(document.documentURI.split("/")[document.documentURI.split("/").length - 1])
   }, [])
 
 
@@ -98,7 +98,7 @@ function App() {
     windowWidth = false;
   }
   return (
-    <div className="container-fluid text-center p-0">
+    <div className="text-center">
 
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />

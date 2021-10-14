@@ -94,11 +94,11 @@ export default function Menu(props) {
     let displayMob = props.displayMob?props.displayMob:"none";
     let displayComp = props.displayComp?props.displayComp:"flex";
     let position = props.position?props.position:"0";
-    let nav = props.nav?props.nav:"container-menu";
+    let nav = props.nav?props.nav:"container-menu row";
 
 
     function isurl(a, b, active, noActive) {
-      return  a === b ? active : a === "/" + b ? active : a === "/" + b + "/ru" || a === "/" + b + "/md" ? active : noActive;
+      return  a === b ? active : a === "/" + b ? active : a === "/" + b? active : noActive;
     }
     return (
         <div>

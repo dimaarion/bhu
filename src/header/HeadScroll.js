@@ -28,7 +28,7 @@ export default function HeadScroll(props) {
 
 
             </div>
-                <Menu menu={SELECTGETMENU} url = {"/"} nav = "container-menuTop scroll" menuComp = "menuTop" position = "1" menuScrolls = "scrollMenuTop" lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                <Menu menu={SELECTGETMENU} url = {"/" + document.documentURI.split("/")[document.documentURI.split("/").length - 1]} nav = "container-menuTop scroll" menuComp = "menuTop" position = "1" menuScrolls = "menuTop scrollMenuTop" lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
 
         </header>
 

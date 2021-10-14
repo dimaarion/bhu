@@ -18,14 +18,15 @@ export default function Pages(props) {
 
             {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> : <HeadScroll tel={props.tel} scroll={true} />}
             <Menu menu={SELECTGETMENU} url={props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
-            <div style={stylesScrollTop(props)} className="row mt-3 col-sm">
-                <div className={props.sX > 1600 ? "col-2" : "none"}>
-                    <Menu menu={SELECTGETMENU} position="2" menuMobile="mobileLeft" scrollactiveMob="mobileLeft scrollactiveMobLeft" type="LEFT" nav="container-menu-left" resizeNavComp="flex-sm-column" menuScrolls="menu-left scrollactive-menu-left" menuComp="menu-left" url={props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+            <div className="row">
+            <div className="col-sm-1"></div>
+                <div className={props.sX > 1600 ? "col-2 mt-2" : "none"}>
+                <Menu menu={SELECTGETMENU} position="2" menuMobile="mobileLeft" scrollactiveMob="mobileLeft scrollactiveMobLeft" type="LEFT" nav="container-menu-left" resizeNavComp="flex-sm-column p-0" menuScrolls="scrollactive-menu-left" menuComp="menu-left" url={props.match.url} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
                 </div>
-                <div className="col-sm ">
+                <div className="col-sm pl-0 mt-2">
                     {SELECARTICLES.filter((f) => f.art_alias === alias(props.location.pathname, f.art_alias)).map((art) => <Article key={art.art_alias + 2} countArt="1" art={art} name={art.art_names} alias={art.art_alias} subContent={art.art_subcontent} content={art.art_content} />)}
                 </div>
-
+                <div className="col-sm-1"></div>
             </div>
             <Footer />
         </div>

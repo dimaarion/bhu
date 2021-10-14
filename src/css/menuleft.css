@@ -1,120 +1,140 @@
-
-.mobileLeft{
+.mobileLeft {
     position: fixed;
     background-color: #001a51;
-    margin-top: 65px;
+    margin-top: -1px;
     width: 100%;
     z-index: 8000 !important;
+    margin-left: -15px;
 }
-.mobileLeft ul{
+
+.mobileLeft ul {
     width: 230px;
     text-align: left !important;
-    margin-top: 50px;
+    margin-top: -15px;
     position: absolute;
     background-color: #2282D6;
     padding-top: 8px;
-
-
 }
-.mobileLeft ul a{
-   display: block;
-   padding-left: 5px;
-   border-left: solid 3px #fff;
-   text-decoration: none;
-   font-size: 14pt;
+
+.mobileLeft ul a {
+    display: block;
+    padding-left: 5px;
+    border-left: solid 3px #fff;
+    text-decoration: none;
+    font-size: 14pt;
 }
-.mobileLeft ul li{
+
+.mobileLeft ul li {
     text-align: left !important;
     list-style: none;
     padding-left: 10px;
 }
-.mobileLeft ul li a{
 
-}
-.mobileLeft ul li ul{
+.mobileLeft ul li ul {
     margin: 0px;
     padding: 0px;
     position: relative;
     width: 220px;
-
-
 }
-.mobileLeft ul li ul li{
+
+.mobileLeft ul li ul li {
     padding: 0px;
     margin-top: 4px;
     background-color: #ffffff;
 }
 
-.mobileLeft ul > li > a{
+.mobileLeft ul>li>a {
     color: #ffffff;
 }
-.mobileLeft ul > li > ul > li > a{
+
+.mobileLeft ul>li>ul>li>a {
     color: #2282D6;
 }
-.mobileLeft ul li a:hover{
+
+.mobileLeft ul li a:hover {
     border-left: solid 3px #ffffff;
     margin-left: 8px;
-
-}
-.mobileLeft .menu_active > a{
-   margin-left: 8px;
 }
 
+.mobileLeft .menu_active>a {
+    margin-left: 8px;
+}
 
+.menu-left .menu_active {
+    background-color: #ffffff !important;
+}
 
-
-
-
-
-
-
+.menu-left .menu_active a {
+    color: #dfb81c !important;
+}
 
 /*  */
 
-
-
-
-.menu-left-btn{
+.menu-left-btn {
     top: -50px;
-	margin-left: 10%;
+    margin-left: 10%;
     position: absolute;
     z-index: 8500;
     cursor: pointer;
 }
 
-.menu-left-btn .arrow{
-	font-size: 50pt;
-	width: 20px;
-	background-color: blue;
-	color: #ffffff;
+.menu-left-btn .arrow {
+    font-size: 50pt;
+    width: 20px;
+    background-color: blue;
+    color: #ffffff;
 }
-.scrollactive-menu-left{
+
+.scrollactive-menu-left {
+    background-color: #ffffff;
     position: fixed;
-    width: 14.5%;
+    width: 14.9%;
+    margin-top: 135px! important;
+    border: solid 1px #cccccc;
 }
-.menu-left{
-	background-color: #ffffff;
-	margin-top: 10px;
-	padding-bottom: 8px;
-}
-.menu-left ul li{
+
+.scrollactive-menu-left ul li {
     height: 30px;
-	text-align: left !important;
-	list-style: none;
-    text-align: left;
+    text-align: left !important;
+    list-style: none;
     margin-left: -20px;
 }
 
-.menu-left ul li a{
-	text-decoration: none;
-	display: block;
-	font-size: 13pt;
-	color: #2282D6;
+.menu-left {
+    background-color: #ffffff;
+    margin-top: 10px;
+    padding-bottom: 8px; 
+    border: solid 1px #cccccc;
 }
-.menu-left ul li a:hover{
-	color: #dfb81c;
+
+.menu-left ul li {
+    height: 30px;
+    text-align: left !important;
+    list-style: none;
+    margin-left: -20px;
 }
-.scrollactivemobbuttonleft{
+
+.menu-left ul li a {
+    text-decoration: none;
+    display: block;
+    font-size: 13pt;
+    color: #2282D6;
+}
+
+.menu-left ul li a:hover {
+    color: #dfb81c;
+}
+
+.scrollactivemobbuttonleft {
     position: fixed !important;
     top: 95px !important;
-    }
+}
+
+.scrollactiveMobLeft {
+    margin-top: 129px!important;
+}
+
+.container-menu-left {
+   
+    
+}

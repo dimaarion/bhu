@@ -1,5 +1,7 @@
 body{
     background-color: #f9f5e5 !important;
+    margin: 0px;
+    padding: 0px;
 }
 a:hover{
     text-decoration: none !important;

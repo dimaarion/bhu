@@ -21,7 +21,7 @@ export default function HeadPage(props) {
                     </div>
                 </div>
                 <Logo />
-                <Menu menu={SELECTGETMENU} url = {"/"} nav = "container-menuTop" menuComp = "menuTop" position = "1" lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
+                <Menu menu={SELECTGETMENU} url = {"/" + document.documentURI.split("/")[document.documentURI.split("/").length - 1]} nav = "container-menuTop" menuComp = "menuTop" position = "1" lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
 
             </div>
         </header>

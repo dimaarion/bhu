@@ -1,30 +1,54 @@
-.article{
+.article  {
     background-color: #fff;
-
+    box-shadow: 5px 5px 5px 5px #cccccc;
+    height: 400px;
 }
-
-.article .content{
+.article .boxGalleryImage{
+    border: solid 1px #cccccc;
+    transition: 0.1s;
+}
+.article .boxGalleryImage:hover{
+    border: solid 4px #dfb81c;
+}
+.article .content {
     text-align: justify;
     font-size: 13pt;
-
 }
-.image-prim-parent{
+
+.image-prim-parent {
     overflow: hidden;
     cursor: pointer;
     height: 200px;
     margin-top: 15px;
 }
-a .image-prim  {
 
-
+a .image-prim {
+    width: 100%;
+    transition: 0.5s;
 }
-a :hover > .image-prim {
+
+a :hover>.image-prim {
     margin-top: -7.5%;
     margin-left: -7.5%;
     width: 110%;
+}
 
- }
+.art-box {
+    margin-top: 0px;
+}
 
- .art-box{
-     background-color: #ffffff;
- }
+ .subH2 {
+    font-size: 16pt;
+}
+a:hover>.subH2{
+    color: #dfb81c;
+}
+
+
+.subArtContent {
+    color: black;
+}
+.page{
+    background-color: #fff;
+    margin-top: 10px;
+}
