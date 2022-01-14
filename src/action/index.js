@@ -2,9 +2,9 @@ import axios from 'axios'
 
  let inital_base_url = 'http://adminpanel';
 if (window.location.hostname === "localhost") {
-    inital_base_url = 'https://sandaniprim.md/';
+    inital_base_url = 'http://sandaniprim.local/';
 }else{
-   inital_base_url = window.location.protocol + "//" + window.location.hostname;
+   inital_base_url = window.location.protocol + "//" + window.location.hostname; 
    }
 
 export function get(f, namef, params = {}) {
@@ -17,7 +17,7 @@ export function post(namef, params = {}) {
         inital_base_url + "/pages/" + namef,
         params,
        { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}
-
+        
     );
 
 }
@@ -29,10 +29,9 @@ export function setConnect(f, namef, params = {}) {
 
 
 
-export function arrayCount(c = 0,n) {
+export function arrayCount(n) {
     let a = [];
-
-    for (let i = c; i < n; i++) {
+    for (let i = 0; i < n; i++) {
         a[i] = i;
     }
     return a;
@@ -102,20 +101,20 @@ export function headers(props) {
 
 
 export function imagesZoom(f) {
-    Array.from(document.getElementsByTagName('img')).map((x)=>x.onclick = (e)=>f({src:e.target.src,alt:e.target.alt}));
+    Array.from(document.getElementsByTagName('img')).map((x)=>x.onclick = (e)=>f({src:e.target.src,alt:e.target.alt})); 
     Array.from(document.getElementsByTagName('img')).map((x)=>x.onmouseover = (e)=>{
         e.target.style.cursor = "zoom-in";
     });
 }
 export function stylesScrollTop(props) {
-
+    
     let styles = {
         scroll:{
             marginTop:"220px"
         },
         noScroll:{
             marginTop:"0px",
-
+            
         },
         scrollSize:{
             margin:"auto",
@@ -125,12 +124,4 @@ export function stylesScrollTop(props) {
         }
     }
     return props.sY < props.scrollN?props.sX < 800?styles.scrollSize:styles.noScroll:props.sX < 800?styles.scrollSize:styles.scroll;
-}
-
-export function replaceClass(selector1 = "", selector2 = "",is = false) {
-    if(is === true){
-        return selector1;
-    }else{
-        return selector2;
-    }
-}
+} 

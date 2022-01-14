@@ -64,30 +64,6 @@ export function getHomeJson(state = [{}], action){
            return state;
     }
 }
-export function getNameMessage(state = "", action){
-    switch (action.type) {
-        case "NAMEMESSAGE":
-            return action.preload;
-        default:
-           return state;
-    }
-}
-export function getLogo(state = "", action){
-    switch (action.type) {
-        case "LOGO":
-            return action.preload;
-        default:
-           return state;
-    }
-}
-export function getLimit(state = 3, action){
-    switch (action.type) {
-        case "LIMIT":
-            return action.preload;
-        default:
-           return state;
-    }
-}
 
 export default combineReducers(
     {
@@ -97,9 +73,6 @@ export default combineReducers(
         getMenuArt:getMenuArt,
         getArticles:getArticles,
         getIcons:getIcons,
-        getHomeJson:getHomeJson,
-        getNameMessage:getNameMessage,
-        getLogo:getLogo,
-        getLimit:getLimit
+        getHomeJson:getHomeJson
     }
     )
