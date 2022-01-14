@@ -175,7 +175,7 @@ export default function Message(props) {
             {props.sY < props.scrollN && props.sX > 800 ? <HeadPage tel={props.tel} /> :<HeadScroll tel={props.tel} scroll={true}/>}
             <Menu menu={SELECTGETMENU} lang={props.lang} scroll={props.scroll} sX={props.sX} winSize={props.winSize} resize={props.resize} tel={props.tel} />
             {
-                HOMEJSON.filter((f) => f.lang === "ru").map((x) => x.message.map((m) => MessageDisplay({
+                HOMEJSON.filter((f) => f.lang === props.match.params.lang).map((x) => x.message.map((m) => MessageDisplay({
                     name: m.name,
                     descript: m.descript,
                     warning: m.warning,

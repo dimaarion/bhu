@@ -1,0 +1,38 @@
+.message{
+    height: 100px;
+    text-align: center;
+    margin-top: 50px;
+    border: solid 1px #cccccc;
+    font-size: 16pt;
+    min-width: 200px;
+    transition: 0.6s;
+    cursor: pointer;
+   
+}
+.message:hover{
+   background-color: rgb(243, 243, 243);
+}
+.message a{
+    text-decoration: none;
+    color: #187751;
+    display: block;
+    height: 100%;
+}
+.lab{
+    color: green;
+}
+.messageChecked{
+    position: absolute;
+    margin: auto;
+    right: 0px;  
+    margin-top: -38px;
+}
+.noMessage{
+  color: red;
+}
+.yesMessage{
+   color: green;
+}
+.message-page{
+    margin-bottom: 500px;
+}

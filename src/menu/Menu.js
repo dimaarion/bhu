@@ -92,7 +92,7 @@ export default function Menu(props) {
     return (
         <nav className = "container-menu">
             {props.resize === true ? <MenuMobile scroll={props.scroll} /> : ""}
-            
+            {props.scroll === true ? <HeadScroll tel={props.tel} scroll={props.scroll} /> : ""}
             <div className={props.resize === true ? props.scroll === true ? scrollactiveMob : menuMobile : props.scroll === true ? menuScrolls : "menu"} >
                 <div className={props.resize === true ? containerFluid : "container"}>
                     <ul style={props.resize === true ? { display: "none" } : { display: "flex" }} className={props.resize === true ? "nav flex-column " : "nav justify-content-center"}>

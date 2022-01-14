@@ -11,7 +11,7 @@ function block(params) {
     return ( 
     <div className = "row">
         <div className={`col-2 fl p-0 ${urlMdRu(document.baseURI) === "ru"?'langActive':""}`} ><Link onClick = {()=>{{LANG({type:"LANG",lang:"ru"});MENUID({type:"MENUID",payload:1})}}} to = "/">ru</Link></div>
-        <div className={`col-2 fl p-0 ${ urlMdRu(document.baseURI) === "md"?'langActive':""}`} ><Link onClick = {()=>{{LANG({type:"LANG",lang:"md"});MENUID({type:"MENUID",payload:2})}}} to = "/md">md</Link></div>
+        <div className={`col-2 fl p-0 ${ urlMdRu(document.baseURI) === "md"?'langActive':""}`} ><Link onClick = {()=>{{LANG({type:"LANG",lang:"md"});MENUID({type:"MENUID",payload:2})}}} to = "/principal/md">md</Link></div>
     </div>
     )
 }
