@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom'
 import ArticlesAll from './pages/ArticlesAll';
-import { get,scrollActive,resizeActive,imagesZoom } from "./action";
+import { get, scrollActive, resizeActive } from "./action";
 import { useDispatch, useSelector } from 'react-redux';
 import Pages from './pages/Pages';
 import Home from './pages/Home';
 import Message from './message/Message';
-import ImgZoom from './images/ImgZoom';
 import "./css/app.css"
-
-
+import "./css/mobil.css"
 
 function App() {
   const [menu, setMenu] = useState([{}]);
@@ -41,27 +39,27 @@ function App() {
     resizeActive(setSX);
   }, [])
 
-  imagesZoom(setImgZoom); 
+
 
   useEffect(() => {
     GETMENU({ type: "GETMENU", preload: menu });
-  }, [menu,GETMENU])
+  }, [menu,GETMENU]);
 
   useEffect(() => {
     GETMENUART({ type: "GETMENUART", preload: artMenu });
-  }, [artMenu,GETMENUART])
+  }, [artMenu,GETMENUART]);
 
   useEffect(() => {
     GETARTICLES({ type: "GETARTICLES", preload: articles });
-  }, [articles,GETARTICLES])
+  }, [articles,GETARTICLES]);
 
   useEffect(()=>{
     GETICONS({type:"GETICONS", preload:icons});
-  },[icons,GETICONS])
+  },[icons,GETICONS]);
 
   useEffect(()=>{
     HOMEJSON({type:"HOMEJSON", preload:homeJson});
-  },[homeJson,HOMEJSON])
+  },[homeJson,HOMEJSON]);
 
   let windowWidth = true; 
   let scrolls = true;
@@ -79,8 +77,8 @@ function App() {
     windowWidth = false;
   }
   return (
-    <div className="container-fluid text-center p-0">
-      {imgZoom.src !== ""?<ImgZoom imgZoom = {imgZoom} setImgZoom = {setImgZoom} />:""}
+    <div className="text-center">
+
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          <Route exact path={"/md"}render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
@@ -88,7 +86,7 @@ function App() {
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias + "/" + x.art_lang} render = {(params) =><Pages {... params} sY = {sY} scrollN = {scrollN} menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          <Route exact  path = "/connect/message/:lang" render = {(params) =><Message {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
       </Switch>
-    
+
     </div>
 
   );

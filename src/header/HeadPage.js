@@ -4,6 +4,7 @@ import MessageButton from "../headbar/MessageButton";
 import Tel from "../headbar/Tel";
 import Lang from "../headbar/Lang";
 export default function HeadPage(props) {
+     
     return (
 
         <header className="row">
