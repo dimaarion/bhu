@@ -1,8 +1,8 @@
 import axios from 'axios'
 
- let inital_base_url = 'http://adminpanel';
+ let inital_base_url = 'http://sandaniprim.local';
 if (window.location.hostname === "localhost") {
-    inital_base_url = 'http://sandaniprim.local/';
+    inital_base_url = 'http://sandaniprim.local';
 }else{
    inital_base_url = window.location.protocol + "//" + window.location.hostname; 
    }

@@ -44,6 +44,10 @@ export default function HomDisplay(props) {
                     <div className="text-justify">{props.content.greenEvolutionContent}</div>
                     <div className="row mt-3">{props.content.greenEvolutionContentBox.map((x) => profile(x))}</div>
                     <Vector />
+                    <h2 className="mt-3">{props.content.bluEvolution}</h2>
+                    <div className="text-justify">{props.content.bluEvolutionContent}</div>
+                    <div className="row mt-3">{props.content.bluEvolutionContentBox.map((x) => profile(x))}</div>
+                    <Vector />
                 </div>
             </div>
             <div className="col-1"></div>

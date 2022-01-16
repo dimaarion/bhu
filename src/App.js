@@ -83,7 +83,7 @@ function App() {
       {imgZoom.src !== ""?<ImgZoom imgZoom = {imgZoom} setImgZoom = {setImgZoom} />:""}
       <Switch>
          <Route exact path={"/"} render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
-         <Route exact path={"/md"}render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
+         <Route exact path={"/principal/md"}render = {(params) =><Home {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
          {SELECTGETMENU.map((x)=><Route key = {x.alias + 5} exact path={"/" + x.alias + "/:lang"} render = {(params) =><ArticlesAll {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          {SELECARTICLES.map((x)=><Route key = {x.art_alias + 8} exact path={"/" + x.art_alias + "/" + x.art_lang} render = {(params) =><Pages {... params} sY = {sY} scrollN = {scrollN} menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />)}
          <Route exact  path = "/connect/message/:lang" render = {(params) =><Message {... params} sY = {sY} scrollN = {scrollN}  menu={SELECTGETMENU} lang={lang} scroll = {scrolls} sX = {sX} winSize = {winSize} resize = {windowWidth}  tel={tel}/>} />
