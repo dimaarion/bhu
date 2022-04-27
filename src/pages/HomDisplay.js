@@ -1,9 +1,10 @@
-import React from "react";
+import React,{useState} from "react";
 import Icons from "../icons/Icons";
 import Vector from "../svg/Vector";
 import Check from "../svg/Check";
 import "../css/homdisplay.css";
 export default function HomDisplay(props) {
+   
     function profile(props) {
         return (
             <div key={props.name + "profile"} className="col-sm-6 mt-4">
@@ -28,6 +29,19 @@ export default function HomDisplay(props) {
             </div>
         )
     }
+    function listing(props) {
+        return (
+            <div className="">
+               
+                <h2 className="mt-3">{props.Evolution}</h2>
+                <div className="text-justify">{props.EvolutionContent}</div> 
+                <div className="row mt-3">
+                   {props.EvolutionContentBox.map((x,i) => profile(x,i))}
+                </div>
+              
+            </div>
+        );
+    }
     return (
         <article className="homdisplay">
             <img src={props.content.image} width="100%" alt={props.content.winInMd} />
@@ -40,14 +54,9 @@ export default function HomDisplay(props) {
                     <h2 className="mt-3">{props.content.name}</h2>
                     <Icons />
                     <Vector />
-                    <h2 className="mt-3">{props.content.greenEvolution}</h2>
-                    <div className="text-justify">{props.content.greenEvolutionContent}</div>
-                    <div className="row mt-3">{props.content.greenEvolutionContentBox.map((x) => profile(x))}</div>
+                    {props.content.listing.map((x, i) => <div key={x + i}>{listing(x)}</div>)}
                     <Vector />
-                    <h2 className="mt-3">{props.content.bluEvolution}</h2>
-                    <div className="text-justify">{props.content.bluEvolutionContent}</div>
-                    <div className="row mt-3">{props.content.bluEvolutionContentBox.map((x) => profile(x))}</div>
-                    <Vector />
+                   
                 </div>
             </div>
             <div className="col-1"></div>
